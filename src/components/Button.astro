@@ -1,0 +1,53 @@
+---
+const { label, external = false } = Astro.props;
+---
+
+<a href="#" class="button bg-buttonPurple mt-3 rounded-sm"
+  >{label}
+  {
+    external && (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="text-white"
+      >
+        <path
+          d="M6.33333 15.2222L4.77778 13.6667L9.55556 8.88889H5.55556V6.66667H13.3333V14.4444H11.1111V10.4444L6.33333 15.2222ZM17.7778 10V2.22222H10V0H20V10H17.7778ZM2.22222 20C1.61111 20 1.08796 19.7824 0.652778 19.3472C0.217593 18.912 0 18.3889 0 17.7778V0H2.22222V17.7778H20V20H2.22222Z"
+          fill="white"
+        />
+      </svg>
+    )
+  }
+</a>
+
+<style>
+  .button {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    color: #111827;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .button:hover {
+    color: rgb(78, 80, 86);
+  }
+
+  .button svg {
+    height: 1em;
+    margin-left: 8px;
+  }
+
+  .button.button {
+    color: white;
+  }
+
+  .button.button:hover {
+    color: rgb(230, 230, 230);
+    box-shadow: none;
+  }
+</style>

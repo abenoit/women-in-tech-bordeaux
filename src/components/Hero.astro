@@ -1,0 +1,153 @@
+---
+import witLogo from "../assets/wit.svg";
+import photo1 from "../assets/photos/photo_cover_1.png";
+import Button from "./Button.astro";
+import Title from "./Title.astro";
+---
+
+<div id="container">
+  <main class="bg-mainPurple">
+    <section id="hero" class="flex flex-row justify-between items-center">
+      <a href="/"
+        ><img src={witLogo.src} width="115" height="48" alt="Women in Tech" />
+      </a>
+      <ul class="flex flex-row gap-4 text-white">
+        <li><a href="/#">A propos</a></li>
+        <li><a href="/#">Prendre part au WIT</a></li>
+        <li><a href="/#">Organisatrices</a></li>
+      </ul>
+    </section>
+
+    <section class="flex flex-row items-center gap-7">
+      <img src={photo1.src} />
+      <div class="flex flex-col items-start">
+        <Title label="Women In Tech Bordeaux" />
+        <p class="text-white">
+          Ces évènements ont pour vocation d'apporter plus de visibilité aux
+          femmes et aux minorités de genre dans la tech, de leur offrir un
+          espace d’échange bienveillant et de partager leur expérience et leur
+          expertise à travers la prise de parole. <br /><br />
+          <b>Les évènements sont ouverts à toutes et tous.</b>
+        </p>
+        <Button label="Rejoindre la communauté sur Meetup" external />
+      </div>
+    </section>
+  </main>
+</div>
+<!-- 
+<style>
+  .button {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    color: #111827;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .button:hover {
+    color: rgb(78, 80, 86);
+  }
+
+  .button svg {
+    height: 1em;
+    margin-left: 8px;
+  }
+
+  .button.button {
+    color: white;
+  }
+
+  .button.button:hover {
+    color: rgb(230, 230, 230);
+    box-shadow: none;
+  }
+
+  /* pre {
+    font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+      Consolas, "DejaVu Sans Mono", monospace;
+    font-weight: normal;
+    background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+  }
+
+  h2 {
+    margin: 0 0 1em;
+    font-weight: normal;
+    color: #111827;
+    font-size: 20px;
+  }
+
+  p {
+    line-height: 24px;
+    letter-spacing: -0.006em;
+    margin: 0;
+  }
+
+  code {
+    display: inline-block;
+    background:
+      linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
+      linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 6px 8px;
+  }
+
+  .box {
+    padding: 16px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 16px;
+    border: 1px solid white;
+  }
+
+  #news {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    max-width: 300px;
+    text-decoration: none;
+    transition: background 0.2s;
+    backdrop-filter: blur(50px);
+  }
+
+  #news:hover {
+    background: rgba(255, 255, 255, 0.55);
+  }
+
+  @media screen and (max-height: 368px) {
+    #news {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #hero {
+      display: block;
+      padding-top: 10%;
+    }
+
+    #links {
+      flex-wrap: wrap;
+    }
+
+    .button.button {
+      padding: 14px 18px;
+    }
+
+    #news {
+      right: 16px;
+      left: 16px;
+      bottom: 2.5rem;
+      max-width: 100%;
+    }
+  } */
+</style> -->
