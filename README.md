@@ -1,3 +1,5 @@
+[Women in tech Bordeaux website](https://abenoit.github.io/women-in-tech-bordeaux/)
+
 # Astro Starter Kit: Basics
 
 ```sh
