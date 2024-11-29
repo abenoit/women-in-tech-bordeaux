@@ -11,7 +11,7 @@ export default {
     colors: {
       mainPurple: "#1E1336",
       lightPurple: "#7298FB",
-      buttonPurple: "#975EE0",
+      mediumPurple: "#975EE0",
       pink: "#FFB6C2",
       white: "#FFF",
       black: "#000",
@@ -22,6 +22,11 @@ export default {
     extend: {
       borderRadius: {
         sm: "10px",
+      },
+      fontSize: {
+        md: "1.5em",
+        lg: "1.5em",
+        xl: "2em",
       },
       spacing: {
         1: "8px",

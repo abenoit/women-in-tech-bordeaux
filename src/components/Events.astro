@@ -1,9 +1,15 @@
 ---
+import EventCard from "./EventCard.astro";
 import Title from "./Title.astro";
 ---
 
 <div>
   <Title label="Nos évènement" />
+  <div class="flex flex-row gap-4">
+    <EventCard />
+    <EventCard />
+    <EventCard />
+  </div>
 </div>
 
 <style></style>
