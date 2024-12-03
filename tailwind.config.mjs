@@ -30,9 +30,10 @@ export default {
       },
       spacing: {
         1: "8px",
+        1.5: "10px",
         2: "12px",
         3: "16px",
-        4: "24px",
+        4: "20px",
         5: "32px",
         6: "48px",
       },
