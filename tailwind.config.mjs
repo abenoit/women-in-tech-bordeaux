@@ -24,7 +24,7 @@ export default {
         sm: "10px",
       },
       fontSize: {
-        md: "1.5em",
+        md: "1.25em",
         lg: "1.5em",
         xl: "2em",
       },
