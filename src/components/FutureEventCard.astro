@@ -1,0 +1,21 @@
+---
+import Button from "./Button.astro";
+const { label } = Astro.props;
+---
+
+<div
+  class="flex flex-col bg-mediumPurple text-white p-5 shadow-lg rounded-t-sm"
+>
+  <span class="text-md">PROCHAIN ÉVÈNEMENT</span>
+  <span class="font-bold text-lg">
+    {label}
+  </span>
+</div>
+
+<div class="flex items-center justify-between p-5">
+  <div class="flex flex-col">
+    <span>Mercredi 11 Décembre</span>
+    <span>SFEIR Bordeaux</span>
+  </div>
+  <Button label="S'inscrire" external />
+</div>

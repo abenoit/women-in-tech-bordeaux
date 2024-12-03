@@ -1,0 +1,14 @@
+---
+const { label } = Astro.props;
+---
+
+<div class="flex flex-col p-5 bg-white rounded-sm">
+  <span class="text-md text-mediumPurple">ÉVÈNEMENT PASSÉ</span>
+  <span class="font-bold text-lg">
+    {label}
+  </span>
+</div>
+
+<div class="flex items-center justify-end p-5">
+  <a href="#" class="text-mediumPurple">Consulter sur Meetup</a>
+</div>

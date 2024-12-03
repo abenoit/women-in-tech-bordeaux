@@ -5,10 +5,13 @@ import Title from "./Title.astro";
 
 <div>
   <Title label="Nos évènement" />
-  <div class="flex flex-row gap-4">
-    <EventCard />
-    <EventCard />
-    <EventCard />
+  <div class="flex flex-col md:flex-row gap-4">
+    <EventCard
+      label="Atelier : Débloquez des idées captivantes pour vos conférences !"
+      future
+    />
+    <EventCard label="La douceur est-elle un avantage ? / Offboarding" />
+    <EventCard label="Part of your world 🧜🏾 ou les abysses de la tech." />
   </div>
 </div>
 
