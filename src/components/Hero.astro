@@ -6,9 +6,7 @@ import Title from "./Title.astro";
 ---
 
 <div id="container">
-  <div
-    class="absolute inset-0 w-full -z-10 bg-mainPurple h-[60rem] md:h-[90%] lg:h-[85%]"
-  >
+  <div class="absolute inset-0 w-full -z-10 bg-mainPurple h-[60rem] lg:h-[85%]">
   </div>
   <main>
     <section
@@ -26,8 +24,8 @@ import Title from "./Title.astro";
     </section>
 
     <section class="flex flex-col lg:flex-row items-center gap-7">
-      <img src={photo1.src} />
-      <div class="flex flex-col items-start">
+      <img src={photo1.src} class="min-w-0 flex-grow basis-0" />
+      <div class="flex flex-col flex-grow basis-0 items-start">
         <Title label="Women In Tech Bordeaux" />
         <p class="text-white">
           Ces évènements ont pour vocation d'apporter plus de visibilité aux
@@ -36,7 +34,7 @@ import Title from "./Title.astro";
           expertise à travers la prise de parole. <br /><br />
           <b>Les évènements sont ouverts à toutes et tous.</b>
         </p>
-        <div class="mt-3">
+        <div class="mt-4">
           <Button label="Rejoindre la communauté sur Meetup" external />
         </div>
       </div>
