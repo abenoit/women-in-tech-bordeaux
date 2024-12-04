@@ -1,9 +1,16 @@
 ---
-const { label, external = false } = Astro.props;
+interface Props {
+  label: string;
+  link: string;
+  external?: boolean;
+}
+
+const { label, link, external = false } = Astro.props;
 ---
 
 <a
-  href="#"
+  href={link || "#"}
+  {...external && { target: "_blank", rel: "noopener noreferrer" }}
   class="flex items-center py-2 px-4 bg-mediumPurple rounded-sm text-white gap-1.5 hover:shadow-sm"
   >{label}
   {

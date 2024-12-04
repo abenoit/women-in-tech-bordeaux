@@ -1,5 +1,14 @@
 ---
-const { label } = Astro.props;
+import Link from "./Link.astro";
+
+interface Props {
+  label: string;
+  link: string;
+}
+
+const { label, link } = Astro.props;
+
+console.log("EEEE");
 ---
 
 <div class="bg-white rounded-sm flex-1">
@@ -11,6 +20,6 @@ const { label } = Astro.props;
   </div>
 
   <div class="flex items-center justify-end p-5">
-    <a href="#" class="text-mediumPurple underline">Consulter sur Meetup</a>
+    <Link label="Consulter sur Meetup" link={link} external />
   </div>
 </div>

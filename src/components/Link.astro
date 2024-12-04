@@ -1,0 +1,15 @@
+---
+interface Props {
+  label: string;
+  link: string;
+  external?: boolean;
+}
+
+const { label, link, external = false } = Astro.props;
+---
+
+<a
+  href={link}
+  {...external && { target: "_blank", rel: "noopener noreferrer" }}
+  class="text-mediumPurple underline hover:cursor-pointer">{label}</a
+>

@@ -1,6 +1,11 @@
 ---
 import Button from "./Button.astro";
-const { label } = Astro.props;
+interface Props {
+  label: string;
+  link: string;
+}
+
+const { label, link } = Astro.props;
 ---
 
 <div
@@ -17,5 +22,5 @@ const { label } = Astro.props;
     <span>Mercredi 11 Décembre</span>
     <span>SFEIR Bordeaux</span>
   </div>
-  <Button label="S'inscrire" external />
+  <Button label="S'inscrire" link={link} external />
 </div>

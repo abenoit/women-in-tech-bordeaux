@@ -1,9 +1,17 @@
 ---
 import FutureEvent from "./FutureEventCard.astro";
 import PastEvent from "./PastEventCard.astro";
-const { label, future = false } = Astro.props;
+
+interface Props {
+  label: string;
+  link: string;
+  future?: boolean;
+}
+
+const { label, link, future = false } = Astro.props;
+const Component = future ? FutureEvent : PastEvent;
 ---
 
 <div class="flex flex-col shadow-md rounded-sm">
-  {future ? <FutureEvent label={label} /> : <PastEvent label={label} />}
+  <Component label={label} link={link} />
 </div>
