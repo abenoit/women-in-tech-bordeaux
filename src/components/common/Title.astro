@@ -1,0 +1,22 @@
+---
+import type { HTMLTag } from "astro/types";
+
+interface Props {
+  as?: HTMLTag;
+  label: string;
+  light?: boolean;
+}
+
+const { as, label, light = false } = Astro.props;
+
+const Component = as || "h1";
+---
+
+<Component class="text-white font-bold">{label}</Component>
+<div
+  class:list={[
+    "w-28 h-1 bg-pink mb-3 mt-3 font-bold text-black",
+    { "text-white": light },
+  ]}
+>
+</div>
