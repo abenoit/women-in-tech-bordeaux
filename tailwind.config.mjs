@@ -14,6 +14,7 @@ export default {
       mediumPurple: "#975EE0",
       linkPurple: "#7E4EBE",
       lightYellow: "#F9EEE3",
+      darkPink: "#E67A50",
       pink: "#FFB6C2",
       white: "#FFF",
       black: "#000",

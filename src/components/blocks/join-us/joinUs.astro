@@ -1,0 +1,54 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Title from "../../common/Title.astro";
+---
+
+<Layout class="flex flex-col gap-6">
+  <Title label="Prendre part au WIT" center light={false} />
+  <div class="flex flex-col lg:flex-row gap-6">
+    <div class="flex flex-col gap-2 flex-grow-1 flex-shrink-0 basis-1/2">
+      <h2 class="text-lg font-bold">
+        <span class="text-darkPink">Entreprises,</span> accueillir l’évènement
+      </h2>
+      <p>
+        Si vous souhaitez accueillir un ou plusieurs évènements dans vos locaux,
+        contactez-nous sur <a
+          class="text-linkPurple"
+          href="mailto:hello@wit-bdx.com">hello@wit-bdx.com</a
+        >. L’accueil de l’évènement comprends l’apéritif pour les
+        participant(e)s.
+      </p>
+      <p>
+        Si vous souhaitez soutenir les évènements autrement, n’hésitez pas à
+        nous contacter pour proposer vos idées.
+      </p>
+      <p>
+        Nous nous réservons le droit de refuser des sponsorings qui ne sont pas
+        en accord avec nos valeurs.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-2 flex-grow-1 flex-shrink-0 basis-1/2">
+      <h2 class="text-lg font-bold">
+        <span class="text-darkPink">Orateurices,</span> faire un talk
+      </h2>
+      <p>
+        Si vous souhaitez faire un talk, contactez-nous sur <a
+          class="text-linkPurple"
+          href="mailto:hello@wit-bdx.com">hello@wit-bdx.com</a
+        >.
+      </p>
+      <p>
+        Il n’y a pas de durée minimum ou de maximum pour les talks. La prise de
+        parole est ouverte aux débutant(e)s et confirmé(e)s, aux femmes et une
+        minorité de genre, aux femmes qui souhaitent parler de sujets techniques
+        ou de sujet non-techniques ainsi qu’aux hommes qui souhaitent parler de
+        sujet d’inclusion et de diversité.
+      </p>
+      <p class="text-sm">
+        Nous proposons du coaching pour préparer votre conférences pour celles
+        et ceux qui le souhaitent.
+      </p>
+    </div>
+  </div>
+</Layout>
