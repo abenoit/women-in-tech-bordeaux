@@ -12,6 +12,7 @@ export default {
       mainPurple: "#1E1336",
       lightPurple: "#7298FB",
       mediumPurple: "#975EE0",
+      lightYellow: "#F9EEE3",
       pink: "#FFB6C2",
       white: "#FFF",
       black: "#000",

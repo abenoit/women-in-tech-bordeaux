@@ -1,0 +1,14 @@
+---
+import Title from "../../common/Title.astro";
+import Layout from "../../../layouts/Layout.astro";
+import Organizer from "./Organizer.astro";
+---
+
+<Layout class="bg-lightYellow">
+  <Title label="Organisatrices" center light={false} />
+  <div class="flex flex-row justify-center gap-5">
+    <Organizer name="Coralie Broteille" />
+    <Organizer name="Noémie Riviere" />
+    <Organizer name="Amélie Benoit" />
+  </div>
+</Layout>

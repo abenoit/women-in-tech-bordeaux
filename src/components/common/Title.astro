@@ -5,18 +5,27 @@ interface Props {
   as?: HTMLTag;
   label: string;
   light?: boolean;
+  center?: boolean;
 }
 
-const { as, label, light = false } = Astro.props;
+const { as, center, label, light = true } = Astro.props;
 
 const Component = as || "h1";
 ---
 
-<Component class="text-white font-bold">{label}</Component>
+<Component
+  class:list={[
+    "font-bold text-black",
+    { "text-white": light },
+    { "text-center": center },
+  ]}>{label}</Component
+>
 <div
   class:list={[
-    "w-28 h-1 bg-pink mb-3 mt-3 font-bold text-black",
-    { "text-white": light },
+    "w-28 h-1 bg-pink mb-3 mt-3",
+    {
+      "mx-auto": center,
+    },
   ]}
 >
 </div>

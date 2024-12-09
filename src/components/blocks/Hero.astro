@@ -6,41 +6,39 @@ import Layout from "../../layouts/Layout.astro";
 import Title from "../common/Title.astro";
 ---
 
-<main class="bg-mainPurple">
-  <Layout>
-    <section
-      id="hero"
-      class="flex flex-row justify-center md:justify-between items-center"
-    >
-      <a href="/"
-        ><img src={witLogo.src} width="115" height="48" alt="Women in Tech" />
-      </a>
-      <ul class="flex-row gap-4 text-white hidden md:flex">
-        <li><a href="/#">A propos</a></li>
-        <li><a href="/#">Prendre part au WIT</a></li>
-        <li><a href="/#">Organisatrices</a></li>
-      </ul>
-    </section>
+<Layout class="bg-mainPurple">
+  <section
+    id="hero"
+    class="flex flex-row justify-center md:justify-between items-center"
+  >
+    <a href="/"
+      ><img src={witLogo.src} width="115" height="48" alt="Women in Tech" />
+    </a>
+    <ul class="flex-row gap-4 text-white hidden md:flex">
+      <li><a href="/#">A propos</a></li>
+      <li><a href="/#">Prendre part au WIT</a></li>
+      <li><a href="/#">Organisatrices</a></li>
+    </ul>
+  </section>
 
-    <section class="flex flex-col lg:flex-row items-center gap-7">
-      <img src={photo1.src} class="min-w-0 flex-grow basis-0" />
-      <div class="flex flex-col flex-grow basis-0 items-start">
-        <Title label="Women In Tech Bordeaux" />
-        <p class="text-white">
-          Ces évènements ont pour vocation d'apporter plus de visibilité aux
-          femmes et aux minorités de genre dans la tech, de leur offrir un
-          espace d’échange bienveillant et de partager leur expérience et leur
-          expertise à travers la prise de parole. <br /><br />
-          <b>Les évènements sont ouverts à toutes et tous.</b>
-        </p>
-        <div class="mt-4">
-          <Button
-            label="Rejoindre la communauté sur Meetup"
-            external
-            link="https://www.meetup.com/fr-FR/women-in-tech-bordeaux/?eventOrigin=your_groups"
-          />
-        </div>
+  <section class="flex flex-col lg:flex-row items-center gap-7">
+    <img src={photo1.src} class="min-w-0 flex-grow basis-0" />
+    <div class="flex flex-col flex-grow basis-0 items-start">
+      <Title label="Women In Tech Bordeaux" />
+      <p class="text-white">
+        Ces évènements ont pour vocation d'apporter plus de visibilité aux
+        femmes et aux minorités de genre dans la tech, de leur offrir un espace
+        d’échange bienveillant et de partager leur expérience et leur expertise
+        à travers la prise de parole. <br /><br />
+        <b>Les évènements sont ouverts à toutes et tous.</b>
+      </p>
+      <div class="mt-4">
+        <Button
+          label="Rejoindre la communauté sur Meetup"
+          external
+          link="https://www.meetup.com/fr-FR/women-in-tech-bordeaux/?eventOrigin=your_groups"
+        />
       </div>
-    </section>
-  </Layout>
-</main>
+    </div>
+  </section>
+</Layout>
