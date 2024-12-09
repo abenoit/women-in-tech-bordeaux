@@ -2,9 +2,10 @@
 import EventCard from "./EventCard.astro";
 import Title from "../../common/Title.astro";
 import Layout from "../../../layouts/Layout.astro";
+import Button from "../../common/Button.astro";
 ---
 
-<Layout>
+<Layout class="flex flex-col gap-4">
   <div class="absolute inset-0 w-full -z-10 bg-mainPurple h-[60%] -mt-1"></div>
   <Title label="Nos évènement" />
   <div class="flex flex-col lg:flex-row gap-4">
@@ -22,10 +23,11 @@ import Layout from "../../../layouts/Layout.astro";
       link="https://www.meetup.com/fr-FR/women-in-tech-bordeaux/events/300028090/?eventorigin=group_events_list"
     />
   </div>
+  <Button
+    label="Voir les précédents évènements"
+    link="https://www.meetup.com/fr-FR/women-in-tech-bordeaux/events"
+    external
+    class="self-end"
+    light
+  />
 </Layout>
-
-<style>
-  .background {
-    background: linear-gradient(to left, #ff0000 50%, #0000ff 50%);
-  }
-</style>
