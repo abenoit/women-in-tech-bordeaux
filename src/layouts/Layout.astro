@@ -2,15 +2,17 @@
 interface Props {
   class?: string;
   dark?: boolean;
+  noPadding?: boolean;
 }
 
-const { class: className, dark = false } = Astro.props;
+const { class: className, dark = false, noPadding } = Astro.props;
 ---
 
 <div
   class:list={[
-    "pt-5 px-[10%] pb-5 lg:pb-9 relative",
+    "px-[10%] relative",
     { "bg-mainPurple": dark },
+    { "pt-5 pb-5 lg:pb-9": !noPadding },
     className,
   ]}
 >
