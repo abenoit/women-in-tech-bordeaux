@@ -2,13 +2,14 @@
 import Title from "../../common/Title.astro";
 import Layout from "../../../layouts/Layout.astro";
 import Organizer from "./Organizer.astro";
+import { getCollection } from "astro:content";
+
+const organizers = await getCollection("organizers");
 ---
 
-<Layout class="bg-lightYellow">
+<Layout class="bg-lightYellow flex flex-col gap-8">
   <Title label="Organisatrices" center light={false} />
-  <div class="flex flex-row justify-center gap-5">
-    <Organizer name="Coralie Broteille" />
-    <Organizer name="Noémie Riviere" />
-    <Organizer name="Amélie Benoit" />
+  <div class="flex flex-col md:flex-row items-center justify-center gap-5">
+    {organizers.map(({ slug }) => <Organizer id={slug} />)}
   </div>
 </Layout>

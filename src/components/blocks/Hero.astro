@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
+
 import witLogo from "../../assets/wit.svg";
-import photo1 from "../../assets/photos/photo_cover_1.png";
+import eventPicture from "../../assets/photo_cover_1.png";
 import Button from "../common/Button.astro";
 import Layout from "../../layouts/Layout.astro";
 import Title from "../common/Title.astro";
@@ -12,7 +14,7 @@ import Title from "../common/Title.astro";
     class="flex flex-row justify-center md:justify-between items-center"
   >
     <a href="/"
-      ><img src={witLogo.src} width="115" height="48" alt="Women in Tech" />
+      ><Image src={witLogo} width="115" height="48" alt="Women in Tech" />
     </a>
     <ul class="flex-row gap-4 text-white hidden md:flex">
       <li><a href="/#">A propos</a></li>
@@ -22,7 +24,11 @@ import Title from "../common/Title.astro";
   </section>
 
   <section class="flex flex-col lg:flex-row items-center gap-7">
-    <img src={photo1.src} class="min-w-0 flex-grow basis-0" />
+    <Image
+      src={eventPicture}
+      class="min-w-0 flex-grow basis-0"
+      alt="photo d'un évènement"
+    />
     <div class="flex flex-col flex-grow basis-0 items-start">
       <Title label="Women In Tech Bordeaux" />
       <p class="text-white">

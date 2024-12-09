@@ -12,6 +12,7 @@ export default {
       mainPurple: "#1E1336",
       lightPurple: "#7298FB",
       mediumPurple: "#975EE0",
+      linkPurple: "#7E4EBE",
       lightYellow: "#F9EEE3",
       pink: "#FFB6C2",
       white: "#FFF",
@@ -43,5 +44,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

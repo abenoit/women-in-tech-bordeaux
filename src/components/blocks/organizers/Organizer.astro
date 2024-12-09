@@ -1,5 +1,24 @@
 ---
-const { name } = Astro.props;
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+import { getEntry } from "astro:content";
+
+interface Props {
+  id: CollectionEntry<"organizers">["slug"];
+}
+
+const { id } = Astro.props;
+const entry = await getEntry("organizers", id);
+
+const { firstName, lastName, pictureName, jobPosition } = entry.data;
+const { Content } = await entry.render();
 ---
 
-<div>{name}</div>
+<div>
+  <Image alt={`Photo de ${firstName}`} src={pictureName} class="mb-2" />
+  <p class="font-bold text-lg">{firstName}</p>
+  <p class="font-bold text-lg uppercase mb-1">{lastName}</p>
+  <p>{jobPosition}</p>
+  <Content />
+</div>
