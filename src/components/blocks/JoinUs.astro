@@ -1,15 +1,15 @@
 ---
 import { Image } from "astro:assets";
 
-import logoSfeir from "../../../assets/sponsors/sfeir.png";
-import logoBeTomorrow from "../../../assets/sponsors/betomorrow.png";
-import logoDeezer from "../../../assets/sponsors/deezer.png";
-import logoWanteeed from "../../../assets/sponsors/wanteeed.png";
-import logoECV from "../../../assets/sponsors/ecv.png";
-import logoWagon from "../../../assets/sponsors/wagon.png";
+import logoSfeir from "../../assets/sponsors/sfeir.png";
+import logoBeTomorrow from "../../assets/sponsors/betomorrow.png";
+import logoDeezer from "../../assets/sponsors/deezer.png";
+import logoWanteeed from "../../assets/sponsors/wanteeed.png";
+import logoECV from "../../assets/sponsors/ecv.png";
+import logoWagon from "../../assets/sponsors/wagon.png";
 
-import Layout from "../../../layouts/Layout.astro";
-import Title from "../../common/Title.astro";
+import Layout from "../../layouts/Layout.astro";
+import Title from "../common/Title.astro";
 ---
 
 <Layout class="flex flex-col gap-6">
@@ -61,15 +61,17 @@ import Title from "../../common/Title.astro";
       </p>
     </div>
   </div>
-  <h2 class="text-lg font-bold">
-    Merci aux entreprises bordelaises qui nous ont déjà accueillis
-  </h2>
-  <div class="flex flex-row flex-wrap gap-5 lg:gap-6">
-    <Image src={logoSfeir} alt="logo SFEIR" />
-    <Image src={logoBeTomorrow} alt="logo BeTomorrow" />
-    <Image src={logoDeezer} alt="logo Deezer" />
-    <Image src={logoWanteeed} alt="logo Wanteeed" />
-    <Image src={logoECV} alt="logo ECV" />
-    <Image src={logoWagon} alt="logo Le Wagon" />
+  <div class="flex flex-col gap-1">
+    <h2 class="text-lg font-bold">
+      Merci aux entreprises bordelaises qui nous ont déjà accueillis
+    </h2>
+    <div class="flex flex-row flex-wrap gap-x-5 gap-y-2 lg:gap-x-6">
+      <Image src={logoSfeir} alt="logo SFEIR" />
+      <Image src={logoBeTomorrow} alt="logo BeTomorrow" />
+      <Image src={logoDeezer} alt="logo Deezer" />
+      <Image src={logoWanteeed} alt="logo Wanteeed" />
+      <Image src={logoECV} alt="logo ECV" />
+      <Image src={logoWagon} alt="logo Le Wagon" />
+    </div>
   </div>
 </Layout>

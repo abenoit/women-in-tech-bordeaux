@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+
+import aboutPicture from "../../assets/photo_about.png";
+
+import Layout from "../../layouts/Layout.astro";
+import Title from "../common/Title.astro";
+---
+
+<Layout class="flex flex-col lg:flex-row justify-center items-center gap-4">
+  <div class="flex flex-col flex-grow-1 flex-shrink-0 basis-1/2 gap-2">
+    <Title label="Nos objectifs et nos valeurs" light={false} />
+    <p>
+      Les WIT sont avant tout là pour rassembler les femmes et leur donner plus
+      de visibilité sur la scène de la Tech. En leur offrant un espace de
+      discussion bienveillant, l’opportunité de travailler ensemble et de
+      partager leur expérience et leur expertise à travers des talks - qu’ils
+      soient techniques ou non. Peu importe votre niveau de connaissance, que
+      vous travailliez dans la tech ou non, vous êtes les bienvenu(e)s !
+    </p>
+  </div>
+  <div class="flex-grow-1 flex-shrink-0 basis-1/2">
+    <Image src={aboutPicture} alt="Photo d'un événement" />
+  </div>
+</Layout>
