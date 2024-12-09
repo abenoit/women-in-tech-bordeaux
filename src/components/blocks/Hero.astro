@@ -2,13 +2,12 @@
 import witLogo from "../../assets/wit.svg";
 import photo1 from "../../assets/photos/photo_cover_1.png";
 import Button from "../common/Button.astro";
+import Layout from "../../layouts/Layout.astro";
 import Title from "../common/Title.astro";
 ---
 
-<div id="container">
-  <div class="absolute inset-0 w-full -z-10 bg-mainPurple h-[60rem] lg:h-[85%]">
-  </div>
-  <main>
+<main class="bg-mainPurple">
+  <Layout>
     <section
       id="hero"
       class="flex flex-row justify-center md:justify-between items-center"
@@ -43,5 +42,5 @@ import Title from "../common/Title.astro";
         </div>
       </div>
     </section>
-  </main>
-</div>
+  </Layout>
+</main>
