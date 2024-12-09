@@ -1,0 +1,44 @@
+---
+interface Props {
+  score: string;
+  label: string;
+  color: "pink" | "blue" | "purple" | "yellow";
+}
+
+const { score, label, color } = Astro.props;
+---
+
+<div class="flex flex-col">
+  <div
+    class:list={[
+      "flex flex-col justify-center bg-pink pt-3 pl-3 pb-8 pr-8 basis-1/4 max-w-sm gap-1",
+      {
+        "bg-bubblePink": color === "pink",
+        "bg-bubbleBlue": color === "blue",
+        "bg-bubblePurple": color === "purple",
+        "bg-bubbleYellow": color === "yellow",
+      },
+    ]}
+  >
+    <div class="text-4xl font-bold">{score}</div>
+    <div>{label}</div>
+  </div>
+  <div
+    class:list={[
+      `arrow border-t-[25px] inline-block h-0 w-0`,
+      {
+        "border-bubblePink": color === "pink",
+        "border-bubbleBlue": color === "blue",
+        "border-bubblePurple": color === "purple",
+        "border-bubbleYellow": color === "yellow",
+      },
+    ]}
+  >
+  </div>
+</div>
+
+<style>
+  .arrow {
+    border-right: 25px solid transparent;
+  }
+</style>
