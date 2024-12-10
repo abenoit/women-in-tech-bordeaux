@@ -8,5 +8,5 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [tailwind()],
   site: "https://abenoit.github.io",
-  base: "women-in-tech-bordeaux",
+  base: "",
 });
