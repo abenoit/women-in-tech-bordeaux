@@ -11,6 +11,9 @@ interface Props {
 const { id } = Astro.props;
 const entry = await getEntry("organizers", id);
 
+if (!entry) {
+  throw new Error(`Organizer with slug ${id} not found`);
+}
 const { firstName, lastName, pictureName, jobPosition } = entry.data;
 const { Content } = await entry.render();
 ---
