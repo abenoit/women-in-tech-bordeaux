@@ -12,6 +12,6 @@ const { label, link, future = false } = Astro.props;
 const Component = future ? FutureEvent : PastEvent;
 ---
 
-<div class="flex flex-col shadow-md rounded-sm">
+<div class="flex flex-col shadow-md rounded-sm flex-1 basis-0">
   <Component label={label} link={link} />
 </div>
