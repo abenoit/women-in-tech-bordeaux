@@ -6,9 +6,10 @@ interface Props {
   label: string;
   light?: boolean;
   center?: boolean;
+  darkPink?: boolean;
 }
 
-const { as, center, label, light = true } = Astro.props;
+const { as, center, label, light = true, darkPink } = Astro.props;
 
 const Component = as || "h1";
 ---
@@ -23,10 +24,12 @@ const Component = as || "h1";
   >
   <div
     class:list={[
-      "w-28 h-1 bg-pink mb-3 mt-3",
+      "w-28 h-1 mb-3 mt-3",
       {
         "mx-auto": center,
       },
+      { "bg-pink1": !darkPink },
+      { "bg-pink2": darkPink },
     ]}
   >
   </div>
