@@ -16,8 +16,10 @@ import Title from "../common/Title.astro";
     <a href="/"
       ><Image src={witLogo} width="115" height="48" alt="Women in Tech" />
     </a>
-    <ul class="flex-row gap-4 underline text-white hidden md:flex">
-      <li><a href="#about">A propos</a></li>
+    <ul class="navbar flex-row gap-4 underline hidden md:flex">
+      <li>
+        <a href="#about">A propos</a>
+      </li>
       <li><a href="#join-us">Prendre part au WIT</a></li>
       <li><a href="#organizers">Organisatrices</a></li>
     </ul>
@@ -50,3 +52,35 @@ import Title from "../common/Title.astro";
     </div>
   </section>
 </Layout>
+
+<!--Set active class on nav when the page is active -->
+<script>
+  addEventListener("hashchange", () => {
+    const nav = document.querySelector(".navbar");
+    const navLinks = nav?.querySelectorAll("a") || [];
+    const currentURL = window.location.href;
+    navLinks.forEach((link) => {
+      if (link.href === currentURL) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  });
+</script>
+
+<style>
+  .navbar a {
+    @apply text-white font-bold border-b-[1px];
+  }
+  .navbar a:hover {
+    @apply text-hoverPurple;
+  }
+  .navbar a:active {
+    @apply text-lightPurple;
+  }
+  .navbar a.active,
+  .navbar a:active {
+    @apply text-lightPurple cursor-default;
+  }
+</style>

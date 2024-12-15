@@ -14,6 +14,7 @@ export default {
       mediumPurple: "#975EE0",
       linkPurple: "#7E4EBE",
       subtitlePurple: "#663A9E",
+      hoverPurple: "#5070CE",
       lightYellow: "#F9EEE3",
       darkPink: "#E67A50",
       bubblePink: "#FFD6DD",
