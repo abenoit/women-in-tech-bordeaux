@@ -2,11 +2,16 @@
 interface Props {
   class?: string;
   dark?: boolean;
-  noPadding?: boolean;
   id?: string;
+  noPadding?: boolean;
 }
 
-const { class: className, dark = false, noPadding, id: idValue } = Astro.props;
+const {
+  class: className,
+  dark = false,
+  noPadding = false,
+  id: idValue,
+} = Astro.props;
 ---
 
 <div
@@ -14,7 +19,7 @@ const { class: className, dark = false, noPadding, id: idValue } = Astro.props;
   class:list={[
     "px-[10%] relative",
     { "bg-mainPurple": dark },
-    { "pt-5 pb-5 lg:pb-9": !noPadding },
+    { " pb-5 lg:pb-9": !noPadding },
     className,
   ]}
 >
