@@ -11,12 +11,12 @@ import Title from "../common/Title.astro";
 <Layout class="bg-mainPurple pt-4">
   <section
     id="hero"
-    class="flex flex-row justify-center md:justify-between items-center"
+    class="mb-5 flex flex-row items-center justify-center md:mb-6 md:justify-between"
   >
     <a href="/"
       ><Image src={witLogo} width="115" height="48" alt="Women in Tech" />
     </a>
-    <ul class="navbar flex-row gap-4 underline hidden md:flex">
+    <ul class="navbar hidden flex-row gap-4 underline md:flex">
       <li>
         <a href="#about">A propos</a>
       </li>
@@ -25,15 +25,15 @@ import Title from "../common/Title.astro";
     </ul>
   </section>
 
-  <section class="flex flex-col lg:flex-row items-center gap-7">
+  <section class="flex flex-col items-center gap-7 lg:flex-row">
     <Image
       src={eventPicture}
       class="min-w-0 flex-grow basis-0"
       alt="photo d'un évènement"
     />
-    <div class="flex flex-col flex-grow basis-0 items-start">
+    <div class="flex flex-grow basis-0 flex-col items-start">
       <Title label="Women In Tech Bordeaux" />
-      <p class="text-lightWhite1 leading-[29px]">
+      <p class="leading-[29px] text-lightWhite1">
         Ces évènements ont pour vocation d'apporter plus de visibilité aux
         femmes et aux minorités de genre dans la tech, de leur offrir un espace
         d’échange bienveillant et de partager leur expérience et leur expertise
@@ -71,12 +71,12 @@ import Title from "../common/Title.astro";
 
 <style>
   .navbar a {
-    @apply text-white font-bold border-b-[1px];
+    @apply border-b-[1px] font-bold text-white;
   }
   .navbar a:hover {
     @apply text-hoverPurple;
   }
-  .navbar a.active{
-    @apply text-lightPurple cursor-default;
+  .navbar a.active {
+    @apply cursor-default text-lightPurple;
   }
 </style>
