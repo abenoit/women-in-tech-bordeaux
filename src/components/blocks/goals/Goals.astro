@@ -8,9 +8,9 @@ import Title from "../../common/Title.astro";
 import Bubble from "./Bubble.astro";
 ---
 
-<Layout class="flex flex-col gap-4 pb-7" id="about" noPadding>
-  <div class="flex flex-col lg:flex-row items-center gap-4">
-    <div class="flex flex-col flex-grow-1 flex-shrink-0 basis-1/2 gap-2">
+<Layout class="flex flex-col gap-5.5 pb-7" id="about" noPadding>
+  <div class="grid grid-flow-row md:grid-cols-2 items-center gap-4">
+    <div class="flex flex-col gap-2">
       <Title label="Nos objectifs et nos valeurs" light={false} darkPink />
       <p class="leading-relaxed">
         Les WIT sont avant tout là pour rassembler les femmes et leur donner
@@ -21,7 +21,7 @@ import Bubble from "./Bubble.astro";
         vous travailliez dans la tech ou non, vous êtes les bienvenu(e)s !
       </p>
     </div>
-    <div class="basis-1/2">
+    <div class="-ml-[30px] md:ml-0">
       <Image src={aboutPicture} alt="Photo d'un événement" />
     </div>
   </div>
@@ -33,7 +33,7 @@ import Bubble from "./Bubble.astro";
     >
       <Bubble
         score="16%"
-        label="de femmes dans la tech à des posts dits techniques"
+        label="de femmes dans la tech à des postes dits techniques"
         color="pink"
       />
       <Bubble

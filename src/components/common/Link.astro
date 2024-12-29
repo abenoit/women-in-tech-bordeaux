@@ -12,6 +12,6 @@ const { label, link, external = false, class: className } = Astro.props;
 <a
   href={link}
   {...external && { target: "_blank", rel: "noopener noreferrer" }}
-  class:list={["text-mediumPurple underline hover:cursor-pointer", className]}
+  class:list={["text-mediumPurple underline hover:cursor-pointer hover:text-buttonHover active:text-buttonPressed", className]}
   >{label}</a
 >
