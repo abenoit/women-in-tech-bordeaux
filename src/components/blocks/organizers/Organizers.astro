@@ -9,10 +9,10 @@ const organizers = await getCollection("organizers");
 
 <Layout
   noPadding
-  class="bg-lightYellow flex flex-col gap-8 pt-9 pb-6"
+  class="bg-lightYellow flex flex-col gap-7 pt-9 pb-6"
   id="organizers"
 >
-  <Title label="Organisatrices" center light={false} />
+  <Title label="Organisatrices" center light={false} darkPink/>
   <div class="flex flex-col md:flex-row items-center justify-center gap-8">
     {organizers.map(({ slug }) => <Organizer id={slug} />)}
   </div>

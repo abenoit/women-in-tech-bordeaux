@@ -7,4 +7,4 @@ jobPosition: Senior Product Designer
 
 Speakeuse Tech
 
-Membre des <span class="text-linkPurple underline">[Duchess France](https://www.duchess-france.fr/)</span>
+Membre des <span class="text-linkPurple underline font-semibold">[Duchess France](https://www.duchess-france.fr/)</span>

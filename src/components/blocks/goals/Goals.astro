@@ -8,7 +8,7 @@ import Title from "../../common/Title.astro";
 import Bubble from "./Bubble.astro";
 ---
 
-<Layout class="flex flex-col gap-4" id="about">
+<Layout class="flex flex-col gap-4 pb-7" id="about" noPadding>
   <div class="flex flex-col lg:flex-row items-center gap-4">
     <div class="flex flex-col flex-grow-1 flex-shrink-0 basis-1/2 gap-2">
       <Title label="Nos objectifs et nos valeurs" light={false} darkPink />
@@ -27,19 +27,14 @@ import Bubble from "./Bubble.astro";
   </div>
 
   <div class="flex flex-col gap-1">
-    <h2 class="text-lg font-bold mb-5">La place des femmes dans la tech</h2>
+    <h2 class="text-mmd font-bold mb-5">La place des femmes dans la tech</h2>
     <div
-      class="grid grid-flow-row md:grid-cols-2 lg:grid-cols-none lg:grid-flow-col gap-4"
+      class="grid grid-flow-row md:grid-cols-2 lg:grid-cols-4 lg:grid-flow-col gap-4 justify-center"
     >
       <Bubble
         score="16%"
         label="de femmes dans la tech à des posts dits techniques"
         color="pink"
-      />
-      <Bubble
-        score="50%"
-        label="de femmes quitte la tech avant leur 35 ans"
-        color="yellow"
       />
       <Bubble
         score="46%"
@@ -50,6 +45,11 @@ import Bubble from "./Bubble.astro";
         score="+10%"
         label="sur le PIB français si la France était paritaire"
         color="purple"
+      />
+      <Bubble
+        score="50%"
+        label="de femmes quitte la tech avant leur 35 ans"
+        color="yellow"
       />
     </div>
   </div>
