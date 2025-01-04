@@ -16,7 +16,7 @@ if (!entry) {
 }
 const { title, date, platform, link } = entry.data;
 
-const future = date > new Date();
+const future = date >= new Date();
 const Component = future ? FutureEvent : PastEvent;
 ---
 
