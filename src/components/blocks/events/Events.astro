@@ -5,6 +5,8 @@ import Layout from "../../../layouts/Layout.astro";
 import Button from "../../common/Button.astro";
 import { getCollection } from "astro:content";
 
+const MAX_DISPLAYABLE_EVENTS = 3;
+
 const allEvents = await getCollection("events");
 const events = allEvents
   .sort(
@@ -12,7 +14,7 @@ const events = allEvents
       new Date(event2.data.date).getTime() -
       new Date(event1.data.date).getTime(),
   )
-  .slice(0, 3);
+  .slice(0, MAX_DISPLAYABLE_EVENTS);
 ---
 
 <Layout class="flex flex-col gap-4">
