@@ -12,9 +12,9 @@ import Layout from "../../layouts/Layout.astro";
 import Title from "../common/Title.astro";
 ---
 
-<Layout class="flex flex-col gap-5 pt-3 pb-5" noPadding id="join-us">
+<Layout class="flex flex-col gap-5 pb-5 pt-3" noPadding id="join-us">
   <Title label="Prendre part au WIT" center light={false} darkPink />
-  <div class="grid grid-flow-row grid-cols-0 lg:grid-cols-2 gap-6">
+  <div class="grid-cols-0 grid grid-flow-row gap-6 lg:grid-cols-2">
     <div class="flex flex-col gap-2">
       <h2 class="text-lg font-bold">
         <span class="text-darkPink">Entreprises,</span> accueillir l’événement
@@ -62,16 +62,18 @@ import Title from "../common/Title.astro";
     </div>
   </div>
   <div class="flex flex-col gap-1">
-    <h2 class="font-bold text-mmd">
+    <h2 class="text-mmd font-bold">
       Merci aux entreprises bordelaises qui nous ont déjà accueillis
     </h2>
-    <div class="flex flex-row flex-wrap gap-x-5 gap-y-2 lg:gap-x-6">
-      <Image src={logoSfeir} alt="logo SFEIR" width={140} />
-      <Image src={logoBeTomorrow} alt="logo BeTomorrow" width={140} />
-      <Image src={logoDeezer} alt="logo Deezer" width={140} />
-      <Image src={logoWanteeed} alt="logo Wanteeed" width={140} />
-      <Image src={logoECV} alt="logo ECV" width={140} />
-      <Image src={logoWagon} alt="logo Le Wagon" width={140} />
+    <div
+      class="flex flex-row flex-wrap justify-center gap-x-5 gap-y-2 md:justify-start lg:gap-x-6"
+    >
+      <Image src={logoSfeir} alt="logo SFEIR" width={120} />
+      <Image src={logoBeTomorrow} alt="logo BeTomorrow" width={120} />
+      <Image src={logoDeezer} alt="logo Deezer" width={120} />
+      <Image src={logoWanteeed} alt="logo Wanteeed" width={120} />
+      <Image src={logoECV} alt="logo ECV" width={120} />
+      <Image src={logoWagon} alt="logo Le Wagon" width={120} />
     </div>
   </div>
 </Layout>

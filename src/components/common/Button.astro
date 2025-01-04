@@ -20,12 +20,15 @@ const {
   href={link || "#"}
   {...external && { target: "_blank", rel: "noopener noreferrer" }}
   class:list={[
-    "flex items-center py-1.5 px-4 rounded-sm gap-1.5 hover:shadow-sm ",
+    "flex items-center gap-1.5 rounded-sm hover:shadow-sm",
     {
-      "bg-white border-[3px] border-mediumPurple text-mediumPurple font-bold hover:bg-lightButtonHover active:bg-lightButtonPressed":
+      "border-[3px] border-mediumPurple bg-white px-4 py-1.5 font-bold text-mediumPurple hover:bg-lightButtonHover active:bg-lightButtonPressed":
         light,
     },
-    { "bg-mediumPurple border-s-mediumPurple text-white hover:bg-buttonHover active:bg-buttonPressed selection:text-mainPurple": !light },
+    {
+      "border-s-mediumPurple bg-mediumPurple px-4 py-3 text-white selection:text-mainPurple hover:bg-buttonHover active:bg-buttonPressed lg:py-1.5":
+        !light,
+    },
     className,
   ]}
   >{label}
@@ -40,7 +43,6 @@ const {
         class:list={[
           "buttonsvg",
           { "text-mediumPurple": light },
-          ,
           { "text-white": !light },
         ]}
       >

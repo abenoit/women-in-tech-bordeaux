@@ -11,10 +11,8 @@ const { score, label, color } = Astro.props;
 <div class="flex flex-col">
   <div
     class:list={[
-      "flex flex-col p-4 max-w-sm pb-8 md:pb-4 h-full",
-      {     
-        //  "flex flex-col justify-center pt-4 px-3 pb-8 max-w-sm gap-1",
-
+      "flex h-full max-w-sm flex-col p-4 pb-8 md:pb-4",
+      {
         "bg-bubblePink": color === "pink",
         "bg-bubbleBlue": color === "blue",
         "bg-bubblePurple": color === "purple",
@@ -27,7 +25,7 @@ const { score, label, color } = Astro.props;
   </div>
   <div
     class:list={[
-      `arrow border-t-[25px] inline-block h-0 w-0`,
+      `arrow inline-block h-0 w-0 border-t-[25px]`,
       {
         "border-bubblePink": color === "pink",
         "border-bubbleBlue": color === "blue",

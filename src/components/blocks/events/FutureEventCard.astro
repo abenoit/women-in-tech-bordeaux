@@ -1,26 +1,47 @@
 ---
+import { Image } from "astro:assets";
 import Button from "../../common/Button.astro";
+import event from "../../../assets/icons/event_available.svg";
+import location from "../../../assets/icons/location.svg";
+
 interface Props {
   label: string;
   link: string;
+  date: Date;
 }
 
-const { label, link } = Astro.props;
+const { label, link, date } = Astro.props;
 ---
 
 <div
-  class="flex flex-col bg-mediumPurple text-white p-5 shadow-lg rounded-t-sm"
+  class="flex flex-col rounded-t-sm bg-mediumPurple p-5 text-white shadow-lg"
 >
   <span class="text-md">PROCHAIN ÉVÈNEMENT</span>
-  <span class="font-bold text-lg">
+  <span class="text-lg font-bold">
     {label}
   </span>
 </div>
 
-<div class="flex items-center justify-between p-5 rounded-b-sm bg-white">
-  <div class="flex flex-col">
-    <span>Mercredi 11 Décembre</span>
-    <span>SFEIR Bordeaux</span>
+<div
+  class="flex flex-col items-start justify-between gap-4 rounded-b-sm bg-white p-5 lg:flex-row lg:items-center"
+>
+  <div class="flex flex-col gap-2">
+    <div class="flex flex-row gap-1">
+      <Image src={event} alt="" />
+      <span>
+        {
+          date.toLocaleDateString("fr", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+          })
+        }</span
+      >
+    </div>
+    <div class="flex flex-row gap-1">
+      <Image src={location} alt="" />
+      <span>SFEIR Bordeaux</span>
+    </div>
   </div>
-  <Button label="S'inscrire" link={link} external />
+  <Button label="S'inscrire" {link} external />
 </div>

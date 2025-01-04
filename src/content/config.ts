@@ -11,6 +11,18 @@ const organizers = defineCollection({
     }),
 });
 
+const events = defineCollection({
+  type: "content",
+  schema: () =>
+    z.object({
+      title: z.string(),
+      date: z.date(),
+      platform: z.enum(["Meetup"]),
+      link: z.string(),
+    }),
+});
+
 export const collections = {
   organizers,
+  events,
 };
