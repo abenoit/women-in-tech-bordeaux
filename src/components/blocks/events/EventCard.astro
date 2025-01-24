@@ -14,7 +14,7 @@ const entry = await getEntry("events", id);
 if (!entry) {
   throw new Error(`Event with slug ${id} not found`);
 }
-const { title, date, platform, link } = entry.data;
+const { title, date, platform, link, place } = entry.data;
 
 const future = date >= new Date();
 const Component = future ? FutureEvent : PastEvent;
@@ -31,5 +31,5 @@ const Component = future ? FutureEvent : PastEvent;
     },
   ]}
 >
-  <Component label={title} {link} {platform} {date} />
+  <Component label={title} {link} {platform} {date} {place} />
 </div>

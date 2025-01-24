@@ -17,8 +17,9 @@ const events = defineCollection({
     z.object({
       title: z.string(),
       date: z.date(),
-      platform: z.enum(["Meetup"]),
+      platform: z.enum(["Meetup", "LinkedIn"]),
       link: z.string(),
+      place: z.string().optional(),
     }),
 });
 

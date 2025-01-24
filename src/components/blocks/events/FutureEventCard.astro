@@ -7,10 +7,11 @@ import location from "../../../assets/icons/location.svg";
 interface Props {
   label: string;
   link: string;
+  place?: string;
   date: Date;
 }
 
-const { label, link, date } = Astro.props;
+const { label, link, date, place } = Astro.props;
 ---
 
 <div
@@ -40,7 +41,7 @@ const { label, link, date } = Astro.props;
     </div>
     <div class="flex flex-row gap-1">
       <Image src={location} alt="" />
-      <span>SFEIR Bordeaux</span>
+      <span>{place || "Lieu à déterminer"}</span>
     </div>
   </div>
   <Button label="S'inscrire" {link} external />
