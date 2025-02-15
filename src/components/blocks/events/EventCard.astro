@@ -15,21 +15,24 @@ if (!entry) {
   throw new Error(`Event with slug ${id} not found`);
 }
 const { title, date, platform, link, place } = entry.data;
-
-const future = date >= new Date();
-const Component = future ? FutureEvent : PastEvent;
 ---
 
 <div
   class:list={[
     "flex-col rounded-sm bg-white shadow-md",
     {
-      "lg:col-span-5": future,
+      "lg:col-span-5": date >= new Date(),
     },
     {
-      "lg:col-span-4": !future,
+      "lg:col-span-4": date < new Date(),
     },
   ]}
 >
-  <Component label={title} {link} {platform} {date} {place} />
+  {
+    date >= new Date() ? (
+      <FutureEvent label={title} {link} {date} {place} />
+    ) : (
+      <PastEvent label={title} {link} {platform} />
+    )
+  }
 </div>
