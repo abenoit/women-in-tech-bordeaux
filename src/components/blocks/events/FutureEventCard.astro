@@ -6,7 +6,7 @@ import location from "../../../assets/icons/location.svg";
 
 interface Props {
   label: string;
-  link: string;
+  link?: string;
   place?: string;
   date: Date;
 }
@@ -44,5 +44,5 @@ const { label, link, date, place } = Astro.props;
       <span>{place || "Lieu à déterminer"}</span>
     </div>
   </div>
-  <Button label="S'inscrire" {link} external />
+  {link && <Button label="S'inscrire" {link} external />}
 </div>

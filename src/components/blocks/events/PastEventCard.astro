@@ -4,8 +4,8 @@ import Link from "../../common/Link.astro";
 
 interface Props {
   label: string;
-  link: string;
-  platform: CollectionEntry<"events">["data"]["platform"];
+  link?: string;
+  platform?: CollectionEntry<"events">["data"]["platform"];
 }
 
 const { label, link, platform } = Astro.props;
@@ -19,12 +19,16 @@ const { label, link, platform } = Astro.props;
     </span>
   </div>
 
-  <div class="flex items-center justify-end pb-7 pr-5.5 lg:px-5 lg:pb-5">
-    <Link
-      label={`Consulter sur ${platform}`}
-      {link}
-      external
-      class="font-semibold"
-    />
-  </div>
+  {
+    link && platform && (
+      <div class="flex items-center justify-end pb-7 pr-5.5 lg:px-5 lg:pb-5">
+        <Link
+          label={`Consulter sur ${platform}`}
+          {link}
+          external
+          class="font-semibold"
+        />
+      </div>
+    )
+  }
 </div>
