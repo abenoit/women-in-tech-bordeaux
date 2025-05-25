@@ -18,10 +18,10 @@ const { firstName, lastName, pictureName, jobPosition } = entry.data;
 const { Content } = await entry.render();
 ---
 
-<div>
+<div class="basis-1/6">
   <Image alt={`Photo de ${firstName}`} src={pictureName} class="mb-2" />
-  <p class="font-bold text-lg leading-7">{firstName}</p>
-  <p class="font-bold text-lg uppercase mb-1">{lastName}</p>
+  <p class="text-lg font-bold leading-7">{firstName}</p>
+  <p class="mb-1 text-lg font-bold uppercase">{lastName}</p>
   <p>{jobPosition}</p>
   <Content />
 </div>
