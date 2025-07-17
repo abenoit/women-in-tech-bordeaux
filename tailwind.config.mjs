@@ -11,6 +11,8 @@ export default {
     colors: {
       mainPurple: "#1E1336",
       lightPurple: "#7298FB",
+      titleSeparatorPink: "#FFB6C2",
+      secondaryTitlePurle: "#6659D1",
       mediumPurple: "#975EE0",
       linkPurple: "#7E4EBE",
       linkPurple2: "#B488EF",
@@ -32,6 +34,7 @@ export default {
       lightWhite2: "#FEFEFE",
       white: "#FFF",
       black: "#000",
+      mediumGrey: "#CCCCCC",
     },
     fontFamily: {
       sans: ["Inter", "sans-serif"],

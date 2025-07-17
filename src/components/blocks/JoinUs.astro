@@ -14,11 +14,16 @@ import Title from "../common/Title.astro";
 ---
 
 <Layout class="flex flex-col gap-5 pb-5 pt-3" noPadding id="join-us">
-  <Title label="Prendre part au WIT" center light={false} darkPink />
+  <Title
+    label="Prendre part au WIT"
+    center
+    light={false}
+    separatorColor="purple"
+  />
   <div class="grid-cols-0 grid grid-flow-row gap-6 lg:grid-cols-2">
     <div class="flex flex-col gap-2">
       <h2 class="text-lg font-bold">
-        <span class="text-darkPink">Entreprises,</span> accueillir l’événement
+        <span class="text-secondaryTitlePurle">Entreprises,</span> accueillir l’événement
       </h2>
       <p class="leading-relaxed">
         Si vous souhaitez accueillir un ou plusieurs événements dans vos locaux,
@@ -40,7 +45,7 @@ import Title from "../common/Title.astro";
 
     <div class="flex flex-col gap-2">
       <h2 class="text-lg font-bold">
-        <span class="text-darkPink">Orateurices,</span> faire un talk
+        <span class="text-secondaryTitlePurle">Orateurices,</span> faire un talk
       </h2>
       <p class="leading-relaxed">
         Si vous souhaitez faire un talk, contactez-nous sur <a

@@ -9,9 +9,13 @@ import Bubble from "./Bubble.astro";
 ---
 
 <Layout class="flex flex-col gap-5.5 pb-7" id="about" noPadding>
-  <div class="grid grid-flow-row md:grid-cols-2 items-center gap-4">
+  <div class="grid grid-flow-row items-center gap-4 md:grid-cols-2">
     <div class="flex flex-col gap-2">
-      <Title label="Nos objectifs et nos valeurs" light={false} darkPink />
+      <Title
+        label="Nos objectifs et nos valeurs"
+        light={false}
+        separatorColor="dark-pink"
+      />
       <p class="leading-relaxed">
         Les WIT sont avant tout là pour rassembler les femmes et leur donner
         plus de visibilité sur la scène de la Tech. En leur offrant un espace de
@@ -27,9 +31,9 @@ import Bubble from "./Bubble.astro";
   </div>
 
   <div class="flex flex-col">
-    <h2 class="text-mmd font-bold mb-5">La place des femmes dans la tech</h2>
+    <h2 class="mb-5 text-mmd font-bold">La place des femmes dans la tech</h2>
     <div
-      class="grid grid-flow-row md:grid-cols-2 lg:grid-cols-4 lg:grid-flow-col gap-4 justify-center"
+      class="grid grid-flow-row justify-center gap-4 md:grid-cols-2 lg:grid-flow-col lg:grid-cols-4"
     >
       <Bubble
         score="16%"

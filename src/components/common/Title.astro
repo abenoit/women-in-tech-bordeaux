@@ -6,10 +6,10 @@ interface Props {
   label: string;
   light?: boolean;
   center?: boolean;
-  darkPink?: boolean;
+  separatorColor: "light-pink" | "dark-pink" | "purple" | "grey";
 }
 
-const { as, center, label, light = true, darkPink } = Astro.props;
+const { as, center, label, separatorColor, light = true } = Astro.props;
 
 const Component = as || "h1";
 ---
@@ -17,19 +17,21 @@ const Component = as || "h1";
 <div>
   <Component
     class:list={[
-      "font-bold text-black leading-10 text-xxl",
+      "text-xxl font-bold leading-10 text-black",
       { "text-white": light },
       { "text-center": center },
     ]}>{label}</Component
   >
   <div
     class:list={[
-      "w-28 h-1 mb-3 mt-4",
+      "mb-3 mt-4 h-1 w-28",
       {
         "mx-auto": center,
       },
-      { "bg-pink1": !darkPink },
-      { "bg-pink2": darkPink },
+      { "bg-titleSeparatorPink": separatorColor === "light-pink" },
+      { "bg-mediumGrey": separatorColor === "grey" },
+      { "bg-pink2": separatorColor === "dark-pink" },
+      { "bg-secondaryTitlePurle": separatorColor === "purple" },
     ]}
   >
   </div>
