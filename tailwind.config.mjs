@@ -35,6 +35,7 @@ export default {
       white: "#FFF",
       black: "#000",
       mediumGrey: "#CCCCCC",
+      subtlePurple: "#EDEBFF",
     },
     fontFamily: {
       sans: ["Inter", "sans-serif"],

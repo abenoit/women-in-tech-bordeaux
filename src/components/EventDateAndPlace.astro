@@ -1,0 +1,31 @@
+---
+import event from "../assets/icons/event_available.svg?raw";
+import location from "../assets/icons/location.svg?raw";
+
+interface Props {
+  place?: string;
+  date: Date;
+  colored?: boolean;
+}
+
+const { date, place, colored = false } = Astro.props;
+---
+
+<div class="flex flex-col gap-2">
+  <div class="flex flex-row items-center gap-1">
+    <span class:list={[colored ? "text-linkPurple" : ""]} set:html={event} />
+    <span>
+      {
+        date.toLocaleDateString("fr", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+        })
+      }</span
+    >
+  </div>
+  <div class="flex flex-row items-center gap-1">
+    <span class:list={[colored ? "text-linkPurple" : ""]} set:html={location} />
+    <span>{place || "Lieu à déterminer"}</span>
+  </div>
+</div>

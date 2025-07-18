@@ -1,0 +1,42 @@
+---
+import Title from "../../../components/Title.astro";
+import Layout from "../../../layouts/Layout.astro";
+import Event from "./Event.astro";
+import { getCollection } from "astro:content";
+
+const events = await getCollection("events");
+
+const eventsByYear = events.reduce(
+  (acc, event) => {
+    const year = new Date(event.data.date).getFullYear();
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    acc[year].push(event);
+    return acc;
+  },
+  {} as Record<string, typeof events>,
+);
+---
+
+<Layout noPadding class="bg-lightYellow pb-6 pt-9" id="events">
+  {
+    Object.keys(eventsByYear)
+      .sort((a, b) => parseInt(b) - parseInt(a)) // Sort years in descending order
+      .map((year) => {
+        const yearEvents = eventsByYear[year];
+        return (
+          <>
+            <Title label={year} light={false} />
+            <div class="grid grid-flow-row gap-4 lg:grid-flow-col lg:grid-cols-12 lg:gap-5">
+              {yearEvents
+                .sort((a, b) => b.data.date.getTime() - a.data.date.getTime()) // most recent first
+                .map(({ slug }) => (
+                  <Event id={slug} />
+                ))}
+            </div>
+          </>
+        );
+      })
+  }
+</Layout>
