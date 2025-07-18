@@ -1,0 +1,18 @@
+---
+interface Props {
+  placeName: string;
+  placeLink?: string;
+}
+
+const { placeLink, placeName } = Astro.props;
+---
+
+{
+  placeLink ? (
+    <a href={placeLink} class="text-linkPurple underline">
+      {placeName}
+    </a>
+  ) : (
+    <span>{placeName}</span>
+  )
+}

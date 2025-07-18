@@ -25,7 +25,13 @@ const events = defineCollection({
         .array(
           z.object({
             title: z.string(),
-            speakers: z.string(),
+            speakers: z.array(
+              z.object({
+                name: z.string(),
+                picture: z.string(),
+                link: z.string().optional(),
+              }),
+            ),
             description: z.string().optional(),
           }),
         )

@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
 
-import witLogo from "../../assets/wit.svg";
-import eventPicture from "../../assets/photo_cover_1.png";
+import witLogo from "../../../assets/wit.svg";
+import eventPicture from "../../../assets/photo_cover_1.png";
 import Button from "../../../components/Button.astro";
 import Layout from "../../../layouts/Layout.astro";
 import Title from "../../../components/Title.astro";
@@ -32,7 +32,11 @@ import Title from "../../../components/Title.astro";
       alt="photo d'un évènement"
     />
     <div class="flex flex-grow basis-0 flex-col items-start">
-      <Title label="Women In Tech Bordeaux" separatorColor="light-pink" />
+      <Title
+        label="Women In Tech Bordeaux"
+        separatorColor="light-pink"
+        color="white"
+      />
       <p class="leading-[29px] text-lightWhite1">
         Ces évènements ont pour vocation d'apporter plus de visibilité aux
         femmes et aux minorités de genre dans la tech, de leur offrir un espace

@@ -3,13 +3,13 @@ import type { HTMLTag } from "astro/types";
 
 interface Props {
   as?: HTMLTag;
-  label: string;
-  light?: boolean;
   center?: boolean;
+  color?: "pink" | "white" | "black";
+  label: string;
   separatorColor: "light-pink" | "dark-pink" | "purple" | "grey";
 }
 
-const { as, center, label, separatorColor, light = true } = Astro.props;
+const { as, center, label, separatorColor, color = "black" } = Astro.props;
 
 const Component = as || "h1";
 ---
@@ -17,9 +17,13 @@ const Component = as || "h1";
 <div>
   <Component
     class:list={[
-      "text-xxl font-bold leading-10 text-black",
-      { "text-white": light },
-      { "text-center": center },
+      `text-xxl font-bold leading-10`,
+      {
+        "text-center": center,
+        "text-darkPink": color === "pink",
+        "text-white": color === "white",
+        "text-black": color === "black",
+      },
     ]}>{label}</Component
   >
   <div

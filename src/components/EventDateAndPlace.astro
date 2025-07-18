@@ -1,14 +1,16 @@
 ---
 import event from "../assets/icons/event_available.svg?raw";
 import location from "../assets/icons/location.svg?raw";
+import Place from "./Place.astro";
 
 interface Props {
   place?: string;
   date: Date;
   colored?: boolean;
+  placeLink?: string;
 }
 
-const { date, place, colored = false } = Astro.props;
+const { date, place, placeLink, colored = false } = Astro.props;
 ---
 
 <div class="flex flex-col gap-2">
@@ -26,6 +28,6 @@ const { date, place, colored = false } = Astro.props;
   </div>
   <div class="flex flex-row items-center gap-1">
     <span class:list={[colored ? "text-linkPurple" : ""]} set:html={location} />
-    <span>{place || "Lieu à déterminer"}</span>
+    <Place placeName={place || "Lieu à déterminer"} {placeLink} />
   </div>
 </div>

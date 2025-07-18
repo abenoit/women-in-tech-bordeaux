@@ -19,23 +19,25 @@ const eventsByYear = events.reduce(
 );
 ---
 
-<Layout noPadding class="bg-lightYellow pb-6 pt-9" id="events">
+<Layout noPadding class="flex flex-col gap-11 bg-white pb-6 pt-9" id="events">
   {
     Object.keys(eventsByYear)
       .sort((a, b) => parseInt(b) - parseInt(a)) // Sort years in descending order
       .map((year) => {
         const yearEvents = eventsByYear[year];
         return (
-          <>
-            <Title label={year} light={false} />
-            <div class="grid grid-flow-row gap-4 lg:grid-flow-col lg:grid-cols-12 lg:gap-5">
+          <div>
+            <h2 class="text-llg mb-5.5 font-bold leading-10 text-darkPink">
+              {year}
+            </h2>
+            <div>
               {yearEvents
                 .sort((a, b) => b.data.date.getTime() - a.data.date.getTime()) // most recent first
                 .map(({ slug }) => (
                   <Event id={slug} />
                 ))}
             </div>
-          </>
+          </div>
         );
       })
   }

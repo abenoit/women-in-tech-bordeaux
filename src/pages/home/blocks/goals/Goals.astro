@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-import aboutPicture from "../../../assets/photo_about.png";
+import aboutPicture from "../../../../assets/photo_about.png";
 
 import Layout from "../../../../layouts/Layout.astro";
 import Title from "../../../../components/Title.astro";
@@ -11,11 +11,7 @@ import Bubble from "./Bubble.astro";
 <Layout class="flex flex-col gap-5.5 pb-7" id="about" noPadding>
   <div class="grid grid-flow-row items-center gap-4 md:grid-cols-2">
     <div class="flex flex-col gap-2">
-      <Title
-        label="Nos objectifs et nos valeurs"
-        light={false}
-        separatorColor="dark-pink"
-      />
+      <Title label="Nos objectifs et nos valeurs" separatorColor="dark-pink" />
       <p class="leading-relaxed">
         Les WIT sont avant tout là pour rassembler les femmes et leur donner
         plus de visibilité sur la scène de la Tech. En leur offrant un espace de
