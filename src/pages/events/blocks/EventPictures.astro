@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  pictures: CollectionEntry<"events">["data"]["pictures"];
+  sponsorLogo: CollectionEntry<"events">["data"]["sponsorLogo"];
+}
+
+const { pictures, sponsorLogo } = Astro.props;
+// Import all sponsors images with proper typing
+const sponsorImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/sponsors/*.{jpeg,jpg,png}",
+);
+const imagePath = `/src/assets/sponsors/${sponsorLogo}`;
+const imageModule = sponsorImages[imagePath];
+let sponsorImage;
+
+try {
+  if (imageModule) {
+    const importedImage = await imageModule();
+    sponsorImage = importedImage.default;
+  }
+} catch (error) {
+  console.error(`Error loading image for ${sponsorLogo}:`, error);
+}
+---
+
+<div class="grid grid-cols-12">
+  {
+    sponsorImage && (
+      <Image
+        class="col-span-2 rounded-sm lg:col-span-6"
+        src={sponsorImage}
+        alt={`Logo de ${sponsorLogo}`}
+        loading="lazy"
+        width={178}
+        height={178}
+      />
+    )
+  }
+  {
+    pictures?.map(({ src, alt }) => (
+      <Image
+        class="col-span-12 rounded-sm lg:col-span-6"
+        src={src}
+        alt={alt}
+        loading="lazy"
+        width={178}
+        height={178}
+      />
+    ))
+  }
+</div>

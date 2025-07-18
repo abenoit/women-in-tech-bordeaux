@@ -5,7 +5,7 @@ link: https://www.linkedin.com/events/produit-discoveryavecl-ia-produ73251943691
 platform: "LinkedIn"
 place: SFEIR Bordeaux
 placeLink: https://sfeir.com/
-
+sponsorLogo: "sfeir-square.png"
 talks:
   - title: "Prototypes & IA : la discovery en mode survitaminé"
     speakers:

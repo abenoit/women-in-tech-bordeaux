@@ -5,6 +5,7 @@ platform: "LinkedIn"
 date: 2025-02-12
 place: Wanteeed Bordeaux
 placeLink: https://wanteeed.com/fr/
+sponsorLogo: "wanteeed-square.png"
 talks:
   - title: "Révolutionnez votre UX avec les PWA"
     speakers:

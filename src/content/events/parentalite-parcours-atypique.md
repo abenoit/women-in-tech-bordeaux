@@ -4,6 +4,7 @@ link: https://www.linkedin.com/events/7306627030899433472/
 platform: "LinkedIn"
 date: 2025-04-08
 place: Betclic Bordeaux
+sponsorLogo: "betclic-square.png"
 placeLink: https://betclicgroup.com/
 talks:
   - title: "Les enjeux de la parentalité en entreprise"
