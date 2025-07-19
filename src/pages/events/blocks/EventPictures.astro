@@ -8,11 +8,19 @@ interface Props {
 }
 
 const { pictures, sponsorLogo } = Astro.props;
+
+// Import all sponsors images with proper typing
 const sponsorImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/sponsors/*.{jpeg,jpg,png}",
 );
-const sponsorImgPath = `/src/assets/sponsors/${sponsorLogo}`;
 
+// Import all event images with proper typing
+const eventImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/events/**/*.{jpeg,jpg,png,webp}",
+);
+
+// Load sponsor image
+const sponsorImgPath = `/src/assets/sponsors/${sponsorLogo}`;
 const sponsorImgModule = sponsorImages[sponsorImgPath];
 let sponsorImage;
 
@@ -22,29 +30,55 @@ try {
     sponsorImage = importedImage.default;
   }
 } catch (error) {
-  console.error(`Error loading sponsor image ${sponsorLogo}:`, error);
+  console.error(`Error loading sponsor image for ${sponsorLogo}:`, error);
+}
+
+// Load event images
+const eventPictureObjects = [];
+if (pictures?.images && Array.isArray(pictures.images)) {
+  for (const image of pictures.images) {
+    const imagePath = `/src/assets/events/${pictures.folder}/${image.src}`;
+    const imageModule = eventImages[imagePath];
+
+    try {
+      if (imageModule) {
+        const importedImage = await imageModule();
+        eventPictureObjects.push({
+          src: importedImage.default,
+          alt: image.alt || "",
+        });
+      }
+    } catch (error) {
+      console.error(`Error loading event image ${imagePath}:`, error);
+    }
+  }
 }
 ---
 
 <div class="flex h-[178px] flex-row gap-2 overflow-x-auto">
   {
     sponsorImage && (
-      <Image
-        class="col-span-3 aspect-square shrink-0 rounded-sm lg:col-span-6"
-        src={sponsorImage}
-        alt={`Logo de ${sponsorLogo}`}
-        loading="lazy"
-        width={178}
-      />
+      <div class="aspect-square">
+        <Image
+          class="h-full w-full rounded-sm object-contain"
+          src={sponsorImage}
+          alt={`Logo de ${sponsorLogo.replace("-square.png", "")}`}
+          loading="lazy"
+          format="webp"
+          quality={90}
+        />
+      </div>
     )
   }
   {
-    pictures?.images?.map(({ src, alt }) => (
-      <img
-        class=""
-        src={"/src/assets/events/" + pictures?.folder + "/" + src}
-        alt={alt}
+    eventPictureObjects.map((image) => (
+      <Image
+        class="h-full w-full rounded-sm object-cover"
+        src={image.src}
+        alt={image.alt}
         loading="lazy"
+        format="webp"
+        quality={90}
       />
     ))
   }
