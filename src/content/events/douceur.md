@@ -3,6 +3,17 @@ title: La douceur est-elle un avantage ? / Offboarding
 date: 2024-06-19
 placeLink: https://betomorrow.com/
 sponsorLogo: "betomorrow-square.png"
+pictures:
+  folder: "douceur"
+  images:
+    - src: "douceur1.png"
+      alt: ""
+    - src: "douceur2.png"
+      alt: ""
+    - src: "douceur3.png"
+      alt: ""
+    - src: "douceur4.png"
+      alt: ""
 talks:
   - title: La douceur est-elle un avantage dans ce monde de brutes ?
     speakers:

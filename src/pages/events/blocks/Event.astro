@@ -19,19 +19,19 @@ if (!entry) {
 const { title, date, place, talks, placeLink, pictures, sponsorLogo } =
   entry.data;
 
-console.log("Event data:", sponsorLogo);
+console.log("Event data:", pictures);
 ---
 
 <div class="pb-5.5">
   <h3 class="mb-5 text-lg font-bold">{title}</h3>
   <div class="flex flex-col gap-4">
     <EventPictures {pictures} {sponsorLogo} />
-    <div class="grid grid-flow-row grid-cols-12">
+    <div class="gap- grid grid-flow-row grid-cols-12">
       <div class="col-span-8 col-start-1">
         <EventTalks {talks} />
       </div>
       <div
-        class="bg-subtlePurple col-span-5 col-start-9 flex flex-col items-start justify-between gap-4 self-start rounded-sm p-4 lg:flex-row lg:items-center"
+        class="bg-subtlePurple col-span-4 flex flex-col items-start justify-between gap-4 self-start rounded-sm p-4 lg:flex-row lg:items-center"
       >
         <EventDateAndPlace {date} {place} {placeLink} colored />
       </div>

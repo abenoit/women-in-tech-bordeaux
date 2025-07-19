@@ -6,6 +6,17 @@ date: 2025-02-12
 place: Wanteeed Bordeaux
 placeLink: https://wanteeed.com/fr/
 sponsorLogo: "wanteeed-square.png"
+pictures:
+  folder: "pwa-qa"
+  images:
+    - src: "pwa-qa1.png"
+      alt: ""
+    - src: "pwa-qa2.png"
+      alt: ""
+    - src: "pwa-qa3.png"
+      alt: ""
+    - src: "pwa-qa4.png"
+      alt: ""
 talks:
   - title: "Révolutionnez votre UX avec les PWA"
     speakers:

@@ -6,6 +6,17 @@ platform: "LinkedIn"
 place: SFEIR Bordeaux
 placeLink: https://sfeir.com/
 sponsorLogo: "sfeir-square.png"
+pictures:
+  folder: "product-discovery"
+  images:
+    - src: "product1.png"
+      alt: ""
+    - src: "product2.png"
+      alt: ""
+    - src: "product3.png"
+      alt: ""
+    - src: "product4.png"
+      alt: ""
 talks:
   - title: "Prototypes & IA : la discovery en mode survitaminé"
     speakers:

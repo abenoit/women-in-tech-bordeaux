@@ -6,6 +6,17 @@ date: 2025-04-08
 place: Betclic Bordeaux
 sponsorLogo: "betclic-square.png"
 placeLink: https://betclicgroup.com/
+pictures:
+  folder: "parentalite"
+  images:
+    - src: "parentalite1.png"
+      alt: ""
+    - src: "parentalite2.png"
+      alt: ""
+    - src: "parentalite3.png"
+      alt: ""
+    - src: "parentalite4.png"
+      alt: ""
 talks:
   - title: "Les enjeux de la parentalité en entreprise"
     speakers:

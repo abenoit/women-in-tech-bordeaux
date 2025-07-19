@@ -18,7 +18,12 @@ const events = defineCollection({
       date: z.date(),
       link: z.string().optional(),
       pictures: z
-        .array(z.object({ src: z.string(), alt: z.string() }))
+        .object({
+          folder: z.string(),
+          images: z
+            .array(z.object({ src: z.string(), alt: z.string() }))
+            .optional(),
+        })
         .optional(),
       place: z.string().optional(),
       placeLink: z.string().optional(),
