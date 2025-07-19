@@ -35,6 +35,7 @@ export default {
       white: "#FFF",
       black: "#000",
       mediumGrey: "#CCCCCC",
+      subtlePurple: "#EDEBFF",
     },
     fontFamily: {
       sans: ["Inter", "sans-serif"],
@@ -44,9 +45,11 @@ export default {
         sm: "10px",
       },
       fontSize: {
+        xs: "0.75em",
+        sm: "1.125em",
         md: "1.25em",
-        mmd: "1.75em",
         lg: "1.5em",
+        llg: "1.75em",
         xl: "2em",
         xxl: "2.375em",
       },
@@ -63,6 +66,7 @@ export default {
         8: "64px",
         9: "72px",
         10: "76px",
+        11: "88px",
       },
     },
   },

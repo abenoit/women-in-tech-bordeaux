@@ -1,0 +1,89 @@
+---
+import { Image } from "astro:assets";
+
+import witLogo from "../../../assets/wit.svg";
+import eventPicture from "../../../assets/photo_cover_1.png";
+import Button from "../../../components/Button.astro";
+import Layout from "../../../layouts/Layout.astro";
+import Title from "../../../components/Title.astro";
+---
+
+<Layout class="bg-mainPurple pt-4">
+  <section
+    id="hero"
+    class="mb-5 flex flex-row items-center justify-center md:mb-6 md:justify-between"
+  >
+    <a href="/">
+      <Image src={witLogo} width="115" height="48" alt="Women in Tech" />
+    </a>
+    <ul class="navbar hidden flex-row gap-4 underline md:flex">
+      <li>
+        <a href="#about">A propos</a>
+      </li>
+      <li><a href="#join-us">Prendre part au WIT</a></li>
+      <li><a href="#organizers">Organisatrices</a></li>
+    </ul>
+  </section>
+
+  <section class="flex flex-col items-center gap-7 lg:flex-row">
+    <Image
+      src={eventPicture}
+      class="min-w-0 flex-grow basis-0"
+      alt="photo d'un évènement"
+    />
+    <div class="flex flex-grow basis-0 flex-col items-start">
+      <Title
+        label="Women In Tech Bordeaux"
+        separatorColor="light-pink"
+        color="white"
+      />
+      <p class="leading-[29px] text-lightWhite1">
+        Ces évènements ont pour vocation d'apporter plus de visibilité aux
+        femmes et aux minorités de genre dans la tech, de leur offrir un espace
+        d’échange bienveillant et de partager leur expérience et leur expertise
+        à travers la prise de parole. <br /><br />
+        <b class="text-lightWhite2"
+          >Les évènements sont ouverts à toutes et tous.</b
+        >
+      </p>
+      <div class="mt-4">
+        <Button
+          label="Rejoindre la communauté sur LinkedIn"
+          external
+          link="https://www.linkedin.com/company/women-in-tech-bordeaux/"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<!--Set active class on nav when the page is active -->
+<script>
+  addEventListener("hashchange", () => {
+    const nav = document.querySelector(".navbar");
+    const navLinks = nav?.querySelectorAll("a") || [];
+    const currentURL = window.location.href;
+    navLinks.forEach((link) => {
+      if (link.href === currentURL) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  });
+</script>
+
+<style>
+  .navbar a {
+    @apply border-b-[1px] font-bold text-white;
+  }
+  .navbar a:hover {
+    @apply text-linkHover;
+  }
+  .navbar a:active {
+    @apply text-lightPurple;
+  }
+  .navbar a.active {
+    @apply cursor-default text-lightPurple;
+  }
+</style>

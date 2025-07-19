@@ -1,0 +1,78 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+// Import all speaker images with proper typing
+const speakerImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/speakers/*.{jpeg,jpg,png,webp}",
+);
+
+interface Props {
+  talks: CollectionEntry<"events">["data"]["talks"];
+}
+
+const { talks } = Astro.props;
+if (!talks || !Array.isArray(talks)) {
+  return null;
+}
+---
+
+<div class="grid grid-cols-[auto_1fr] gap-x-1 gap-y-3">
+  {
+    talks.map((talk) => (
+      <>
+        <ul class="flex shrink-0 items-center justify-self-end">
+          {talk.speakers.map(async (speaker, index) => {
+            const imagePath = `/src/assets/speakers/${speaker.picture}`;
+            const imageModule = speakerImages[imagePath];
+            let speakerImage;
+
+            try {
+              if (imageModule) {
+                const importedImage = await imageModule();
+                speakerImage = importedImage.default;
+              }
+            } catch (error) {
+              console.error(`Error loading image for ${speaker.name}:`, error);
+            }
+
+            return (
+              <li
+                class:list={[
+                  {
+                    "-ml-3": index > 0,
+                  },
+                ]}
+              >
+                {speakerImage && (
+                  <Image
+                    alt={`Photo de ${speaker.name}`}
+                    src={speakerImage}
+                    format="webp"
+                    quality={90}
+                    loading="lazy"
+                    class="w-[50px] rounded-full border-2 border-white object-cover"
+                  />
+                )}
+              </li>
+            );
+          })}
+        </ul>
+        <div>
+          <h4 class="text-sm font-bold">« {talk.title} »</h4>
+          {talk.speakers.map((speaker, index) => (
+            <span>
+              <a
+                href={speaker.link}
+                class="hover:text-linkPurpleHover font-semibold text-linkPurple underline"
+              >
+                {speaker.name}
+              </a>
+              {index < talk.speakers.length - 1 && " et"}
+            </span>
+          ))}
+        </div>
+      </>
+    ))
+  }
+</div>

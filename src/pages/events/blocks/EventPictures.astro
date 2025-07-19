@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  pictures: CollectionEntry<"events">["data"]["pictures"];
+  sponsorLogo: CollectionEntry<"events">["data"]["sponsorLogo"];
+}
+
+const { pictures, sponsorLogo } = Astro.props;
+
+// Import all sponsors images with proper typing
+const sponsorImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/sponsors/*.{jpeg,jpg,png}",
+);
+
+// Import all event images with proper typing
+const eventImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/events/**/*.{jpeg,jpg,png,webp}",
+);
+
+// Load sponsor image
+const sponsorImgPath = `/src/assets/sponsors/${sponsorLogo}`;
+const sponsorImgModule = sponsorImages[sponsorImgPath];
+let sponsorImage;
+
+try {
+  if (sponsorImgModule) {
+    const importedImage = await sponsorImgModule();
+    sponsorImage = importedImage.default;
+  }
+} catch (error) {
+  console.error(`Error loading sponsor image for ${sponsorLogo}:`, error);
+}
+
+// Load event images
+const eventPictureObjects = [];
+if (pictures?.images && Array.isArray(pictures.images)) {
+  for (const image of pictures.images) {
+    const imagePath = `/src/assets/events/${pictures.folder}/${image.src}`;
+    const imageModule = eventImages[imagePath];
+
+    try {
+      if (imageModule) {
+        const importedImage = await imageModule();
+        eventPictureObjects.push({
+          src: importedImage.default,
+          alt: image.alt || "",
+        });
+      }
+    } catch (error) {
+      console.error(`Error loading event image ${imagePath}:`, error);
+    }
+  }
+}
+---
+
+<div class="flex h-[178px] flex-row gap-2 overflow-x-auto">
+  {
+    sponsorImage && (
+      <div class="aspect-square">
+        <Image
+          class="h-full w-full rounded-sm object-contain"
+          src={sponsorImage}
+          alt={`Logo de ${sponsorLogo.replace("-square.png", "")}`}
+          loading="lazy"
+          format="webp"
+          quality={90}
+        />
+      </div>
+    )
+  }
+  {
+    eventPictureObjects.map((image) => (
+      <Image
+        class="h-full w-full rounded-sm object-cover"
+        src={image.src}
+        alt={image.alt}
+        loading="lazy"
+        format="webp"
+        quality={90}
+      />
+    ))
+  }
+</div>

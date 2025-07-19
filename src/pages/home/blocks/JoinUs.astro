@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+
+import logoSfeir from "../../../assets/sponsors/sfeir.png";
+import logoBeTomorrow from "../../../assets/sponsors/betomorrow.png";
+import logoDeezer from "../../../assets/sponsors/deezer.png";
+import logoWanteeed from "../../../assets/sponsors/wanteeed.png";
+import logoECV from "../../../assets/sponsors/ecv.png";
+import logoWagon from "../../../assets/sponsors/wagon.png";
+import logoBetclic from "../../../assets/sponsors/betclic.png";
+
+import Layout from "../../../layouts/Layout.astro";
+import Title from "../../../components/Title.astro";
+---
+
+<Layout class="flex flex-col gap-5 pb-5 pt-3" noPadding id="join-us">
+  <Title label="Prendre part au WIT" center separatorColor="purple" />
+  <div class="grid-cols-0 grid grid-flow-row gap-6 lg:grid-cols-2">
+    <div class="flex flex-col gap-2">
+      <h2 class="text-lg font-bold">
+        <span class="text-secondaryTitlePurle">Entreprises,</span> accueillir l’événement
+      </h2>
+      <p class="leading-relaxed">
+        Si vous souhaitez accueillir un ou plusieurs événements dans vos locaux,
+        contactez-nous sur <a
+          class="text-linkPurple underline"
+          href="mailto:hello@wit-bdx.com">hello@wit-bdx.com</a
+        >. L’accueil de l’événement comprend l’apéritif pour les
+        participant(e)s.
+      </p>
+      <p class="leading-relaxed">
+        Si vous souhaitez soutenir les événements autrement, n’hésitez pas à
+        nous contacter pour proposer vos idées.
+      </p>
+      <p class="leading-relaxed">
+        Nous nous réservons le droit de refuser des sponsorings qui ne sont pas
+        en accord avec nos valeurs.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <h2 class="text-lg font-bold">
+        <span class="text-secondaryTitlePurle">Orateurices,</span> faire un talk
+      </h2>
+      <p class="leading-relaxed">
+        Si vous souhaitez faire un talk, contactez-nous sur <a
+          class="text-linkPurple underline"
+          href="mailto:hello@wit-bdx.com">hello@wit-bdx.com</a
+        >.
+      </p>
+      <p class="leading-relaxed">
+        Il n’y a pas de durée minimum ou de maximum pour les talks. La prise de
+        parole est ouverte aux débutant(e)s et confirmé(e)s. Les femmes et
+        minorités de genre sont invitées à partager leurs expériences, qu’elles
+        portent sur des sujets techniques ou non techniques. De plus, les hommes
+        sont encouragés à aborder des thématiques liées à l’inclusion et à la
+        diversité.
+      </p>
+      <p class="text-sm italic">
+        Nous proposons du coaching pour préparer votre conférences pour celles
+        et ceux qui le souhaitent.
+      </p>
+    </div>
+  </div>
+  <div class="flex flex-col gap-1">
+    <h2 class="text-mmd font-bold">
+      Merci aux entreprises bordelaises qui nous ont déjà accueillis
+    </h2>
+    <div
+      class="flex flex-row flex-wrap justify-center gap-x-5 gap-y-2 md:justify-start lg:gap-x-6"
+    >
+      <Image class="w-[120px]" src={logoSfeir} alt="logo SFEIR" />
+      <Image class="w-[120px]" src={logoBeTomorrow} alt="logo BeTomorrow" />
+      <Image class="w-[120px]" src={logoDeezer} alt="logo Deezer" />
+      <Image class="w-[120px]" src={logoWanteeed} alt="logo Wanteeed" />
+      <Image class="w-[120px]" src={logoECV} alt="logo ECV" />
+      <Image class="w-[120px]" src={logoWagon} alt="logo Le Wagon" />
+      <Image class="w-[120px]" src={logoBetclic} alt="logo Betclic" />
+    </div>
+  </div>
+</Layout>

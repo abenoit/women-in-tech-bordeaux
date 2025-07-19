@@ -1,0 +1,34 @@
+---
+import EventCard from "./EventCard.astro";
+import Title from "../../../../components/Title.astro";
+import Layout from "../../../../layouts/Layout.astro";
+import Button from "../../../../components/Button.astro";
+import { getCollection } from "astro:content";
+
+const MAX_DISPLAYABLE_EVENTS = 3;
+
+const allEvents = await getCollection("events");
+const events = allEvents
+  .sort(
+    (event1, event2) =>
+      new Date(event2.data.date).getTime() -
+      new Date(event1.data.date).getTime(),
+  )
+  .slice(0, MAX_DISPLAYABLE_EVENTS);
+---
+
+<Layout class="flex flex-col gap-4">
+  <div class="absolute inset-0 -z-10 -mt-1 h-[60%] w-full bg-mainPurple"></div>
+  <Title label="Nos évènements" separatorColor="grey" color="white" />
+  <div
+    class="grid grid-flow-row gap-4 lg:grid-flow-col lg:grid-cols-12 lg:gap-5"
+  >
+    {events.map(({ slug }) => <EventCard id={slug} />)}
+  </div>
+  <Button
+    label="Voir les précédents évènements"
+    link="/events"
+    class="self-end"
+    light
+  />
+</Layout>

@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "../../../layouts/Layout.astro";
+import Title from "../../../components/Title.astro";
+import Button from "../../../components/Button.astro";
+import witLogo from "../../../assets/wit.svg";
+---
+
+<Layout class="bg-mainPurple pt-4">
+  <section
+    id="hero"
+    class="mb-5 flex flex-row items-center justify-center gap-4 md:mb-6 md:justify-between"
+  >
+    <a href="/">
+      <Image src={witLogo} width="115" height="48" alt="Women in Tech" />
+    </a>
+    <ul class="navbar flex-row items-center gap-4 text-white underline md:flex">
+      <li class="hidden">
+        <a href="#about">Éditions précédentes</a>
+      </li>
+      <li class="hidden"><a href="#join-us">Recommandations</a></li>
+      <li>
+        <Button
+          link="https://www.linkedin.com/company/women-in-tech-bordeaux"
+          external
+          label="Nous suivre sur LinkedIn"
+        />
+      </li>
+    </ul>
+  </section>
+
+  <section class="flex flex-col items-center gap-7 lg:flex-row">
+    <div class="flex flex-grow basis-0 flex-col items-start">
+      <Title
+        label="Nos éditions précédentes"
+        separatorColor="light-pink"
+        color="white"
+      />
+      <p class="leading-[29px] text-lightWhite1">
+        Découvrez toutes les personnes qui ont prises la parole lors des Women
+        In Tech Bordeaux ainsi que les sujets des conférences qu’elles ont
+        donné.
+      </p>
+    </div>
+  </section>
+</Layout>

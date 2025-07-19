@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+import EventTalks from "./EventTalks.astro";
+import EventPictures from "./EventPictures.astro";
+import EventDateAndPlace from "../../../components/EventDateAndPlace.astro";
+
+interface Props {
+  id: CollectionEntry<"events">["slug"];
+}
+
+const { id } = Astro.props;
+const entry = await getEntry("events", id);
+
+if (!entry) {
+  throw new Error(`Event with slug ${id} not found`);
+}
+const { title, date, place, talks, placeLink, pictures, sponsorLogo } =
+  entry.data;
+---
+
+<div class="pb-5.5">
+  <h3 class="mb-5 text-lg font-bold">{title}</h3>
+  <div class="flex flex-col gap-4">
+    <EventPictures {pictures} {sponsorLogo} />
+    <div
+      class="flex flex-col-reverse gap-4 md:grid md:grid-flow-row md:grid-cols-12"
+    >
+      <div class="col-span-8 col-start-1">
+        <EventTalks {talks} />
+      </div>
+      <div
+        class="bg-subtlePurple col-span-4 flex flex-col items-start justify-between gap-4 self-start rounded-sm p-4 lg:flex-row lg:items-center"
+      >
+        <EventDateAndPlace {date} {place} {placeLink} colored />
+      </div>
+    </div>
+  </div>
+</div>
