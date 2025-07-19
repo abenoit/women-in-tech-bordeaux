@@ -48,15 +48,10 @@ if (!talks || !Array.isArray(talks)) {
                   <Image
                     alt={`Photo de ${speaker.name}`}
                     src={speakerImage}
-                    width={50}
-                    height={50}
                     format="webp"
                     quality={90}
-                    loading="eager"
-                    decoding="async"
-                    class:list={[
-                      "rounded-full border-2 border-white object-cover",
-                    ]}
+                    loading="lazy"
+                    class="w-[50px] rounded-full border-2 border-white object-cover"
                   />
                 )}
               </li>
