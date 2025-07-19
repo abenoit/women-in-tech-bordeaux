@@ -4,13 +4,16 @@ import { getEntry } from "astro:content";
 
 import EventTalks from "./EventTalks.astro";
 import EventPictures from "./EventPictures.astro";
-import EventDateAndPlace from "../../../components/EventDateAndPlace.astro";
+import EventDateAndPlace from "../../components/EventDateAndPlace.astro";
 
 interface Props {
   id: CollectionEntry<"events">["slug"];
 }
 
 const { id } = Astro.props;
+if (!id) {
+  throw new Error("Event ID is required");
+}
 const entry = await getEntry("events", id);
 
 if (!entry) {

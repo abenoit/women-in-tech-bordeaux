@@ -2,11 +2,11 @@
 import type { HTMLTag } from "astro/types";
 
 interface Props {
-  as?: HTMLTag;
   center?: boolean;
   color?: "pink" | "white" | "black";
   label: string;
   separatorColor: "light-pink" | "dark-pink" | "purple" | "grey";
+  as?: HTMLTag;
 }
 
 const { as, center, label, separatorColor, color = "black" } = Astro.props;
