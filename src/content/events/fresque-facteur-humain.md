@@ -5,7 +5,7 @@ platform: "LinkedIn"
 date: 2025-06-25
 place: Aubay
 sponsorLogo: "aubay-square.png"
-placeLink: https://betclicgroup.com/
+placeLink: https://aubay.com/
 pictures:
   folder: "fresque-facteur-humain"
   images:
@@ -18,7 +18,7 @@ pictures:
     - src: "fresque4.png"
       alt: "Atelier collaboratif chez Aubay : plusieurs participantes concentrées autour d’une table, écrivant sur des post-its ou manipulant des cartes de jeu colorées, dans une salle lumineuse avec le logo Aubay en fond."
 talks:
-  - title: "Les enjeux de la parentalité en entreprise"
+  - title: "Fresque du facteur humain"
     speakers:
       - name: "Vanessa Stchogoleff"
         picture: "vanessa-stchogoleff.jpeg"
