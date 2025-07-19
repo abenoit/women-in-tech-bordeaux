@@ -26,7 +26,9 @@ console.log("Event data:", pictures);
   <h3 class="mb-5 text-lg font-bold">{title}</h3>
   <div class="flex flex-col gap-4">
     <EventPictures {pictures} {sponsorLogo} />
-    <div class="gap- grid grid-flow-row grid-cols-12">
+    <div
+      class="flex flex-col-reverse gap-4 md:grid md:grid-flow-row md:grid-cols-12"
+    >
       <div class="col-span-8 col-start-1">
         <EventTalks {talks} />
       </div>
