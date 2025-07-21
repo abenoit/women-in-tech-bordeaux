@@ -1,12 +1,17 @@
 ---
 import Footer from "../../components/Footer.astro";
-import Header from "./blocks/Header.astro";
+import Header from "../../components/Header.astro";
 import MainLayout from "../../components/layouts/MainLayout.astro";
 import EventPerYear from "./blocks/EventPerYear.astro";
 ---
 
 <MainLayout>
-  <Header />
+  <Header
+    title="Nos éditions précédentes"
+    subtitle=" Découvrez toutes les personnes qui ont prises la parole lors des Women
+        In Tech Bordeaux ainsi que les sujets des conférences qu’elles ont
+        donné."
+  />
   <EventPerYear />
   <Footer />
 </MainLayout>

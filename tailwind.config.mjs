@@ -47,6 +47,7 @@ export default {
       fontSize: {
         xs: "0.75em",
         sm: "1.125em",
+        md: "1.15em",
         md: "1.25em",
         lg: "1.5em",
         llg: "1.75em",

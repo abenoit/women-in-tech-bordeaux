@@ -1,10 +1,17 @@
 ---
 import { Image } from "astro:assets";
 
-import Layout from "../../../components/layouts/Layout.astro";
-import Title from "../../../components/Title.astro";
-import Button from "../../../components/Button.astro";
-import witLogo from "../../../assets/wit.svg";
+import Layout from "./layouts/Layout.astro";
+import Title from "./Title.astro";
+import Button from "./Button.astro";
+import witLogo from "../assets/wit.svg";
+
+interface Props {
+  title: string;
+  subtitle: string;
+}
+
+const { title, subtitle } = Astro.props;
 ---
 
 <Layout class="bg-mainPurple pt-4">
@@ -16,10 +23,10 @@ import witLogo from "../../../assets/wit.svg";
       <Image src={witLogo} width="115" height="48" alt="Women in Tech" />
     </a>
     <ul class="navbar flex-row items-center gap-4 text-white underline md:flex">
-      <li class="hidden">
-        <a href="#about">Éditions précédentes</a>
+      <li class="">
+        <a href="#previous-events">Éditions précédentes</a>
       </li>
-      <li class="hidden"><a href="#join-us">Recommandations</a></li>
+      <li class=""><a href="#recommendations">Recommandations</a></li>
       <li>
         <Button
           link="https://www.linkedin.com/company/women-in-tech-bordeaux"
@@ -32,15 +39,9 @@ import witLogo from "../../../assets/wit.svg";
 
   <section class="flex flex-col items-center gap-7 lg:flex-row">
     <div class="flex flex-grow basis-0 flex-col items-start">
-      <Title
-        label="Nos éditions précédentes"
-        separatorColor="light-pink"
-        color="white"
-      />
+      <Title label={title} separatorColor="light-pink" color="white" />
       <p class="leading-[29px] text-lightWhite1">
-        Découvrez toutes les personnes qui ont prises la parole lors des Women
-        In Tech Bordeaux ainsi que les sujets des conférences qu’elles ont
-        donné.
+        {subtitle}
       </p>
     </div>
   </section>

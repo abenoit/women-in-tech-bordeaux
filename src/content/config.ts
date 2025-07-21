@@ -11,6 +11,28 @@ const organizers = defineCollection({
     }),
 });
 
+const recommendations = defineCollection({
+  type: "content",
+  schema: () =>
+    z.object({
+      items: z
+        .array(
+          z.object({
+            title: z.string(),
+            author: z.string(),
+            buyLink: z.string().optional(),
+            consultLink: z.string().optional(),
+            thumbnail: z.string(),
+            recommendedBy: z.object({
+              name: z.string(),
+              picture: z.string(),
+            }),
+          }),
+        )
+        .optional(),
+    }),
+});
+
 const events = defineCollection({
   type: "content",
   schema: () =>
@@ -49,6 +71,7 @@ const events = defineCollection({
 });
 
 export const collections = {
-  organizers,
   events,
+  organizers,
+  recommendations,
 };
