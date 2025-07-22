@@ -20,8 +20,19 @@ const recommendations = defineCollection({
           z.object({
             title: z.string(),
             author: z.string(),
-            buyLink: z.string().optional(),
-            consultLink: z.string().optional(),
+            consultLink: z
+              .object({
+                link: z.string(),
+                verb: z.enum([
+                  "Acheter",
+                  "Lire",
+                  "Consulter",
+                  "Écouter",
+                  "Suivre",
+                ]),
+                platform: z.string(),
+              })
+              .optional(),
             thumbnail: z.string(),
             recommendedBy: z.object({
               name: z.string(),

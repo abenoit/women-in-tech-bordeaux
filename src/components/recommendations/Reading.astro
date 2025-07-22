@@ -10,7 +10,7 @@ type Recommendation = {
     name: string;
     picture: string;
   };
-  buyLink?: string | undefined;
+  consultLink?: { link: string; platform: string } | undefined;
   consultLink?: string | undefined;
 };
 
@@ -81,9 +81,14 @@ try {
         Recommandé par {recommendation.recommendedBy.name}
       </div>
       {
-        recommendation.buyLink && (
-          <a href={recommendation.buyLink} class="text-linkPurple underline">
-            Acheter le livre sur Mollat
+        recommendation.consultLink && (
+          <a
+            href={recommendation.consultLink.link}
+            class="text-linkPurple underline"
+          >
+            {recommendation.consultLink.verb === "Consulter"
+              ? "Consulter le contenu"
+              : `${recommendation.consultLink.verb} le livre sur ${recommendation.consultLink.platform}`}
           </a>
         )
       }
