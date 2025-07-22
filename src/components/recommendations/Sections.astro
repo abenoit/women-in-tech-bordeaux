@@ -3,28 +3,60 @@ import { getCollection } from "astro:content";
 
 import Layout from "../layouts/Layout.astro";
 import Reading from "./Reading.astro";
+import Video from "./Video.astro";
 
 const recommendations = await getCollection("recommendations");
-const readings = recommendations
-  .filter((r) => r.slug === "readings")
-  .flatMap((r) => r.data.items);
+
+const mappedRecommendations = recommendations.reduce(
+  (acc, reco) => {
+    if (reco.slug === "readings") {
+      acc.readings.push(...(reco.data.items || []));
+    } else if (reco.slug === "videos") {
+      acc.videos.push(...(reco.data.items || []));
+    } else if (reco.slug === "audios") {
+      acc.audios.push(...(reco.data.items || []));
+    }
+    return acc;
+  },
+  { readings: [], videos: [], audios: [] } as {
+    readings: any[];
+    videos: any[];
+    audios: any[];
+  },
+);
 ---
 
 <Layout noPadding class="flex flex-col gap-11 bg-white pb-6 pt-9">
-  <h3 class="text-llg font-bold leading-10">
-    <span class="text-darkPink">Livres,</span> magazines...
-  </h3>
-  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-    {
-      readings.map(async (recommendation) => (
-        <Reading recommendation={recommendation} />
-      ))
-    }
-  </div>
+  {
+    mappedRecommendations.readings.length > 0 && (
+      <>
+        <h3 class="text-llg font-bold leading-10">
+          <span class="text-darkPink">Livres,</span> magazines...
+        </h3>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {mappedRecommendations.readings.map((recommendation) => (
+            <Reading recommendation={recommendation} />
+          ))}
+        </div>
+      </>
+    )
+  }
 
-  <h3 class="text-llg font-bold leading-10">
-    <span class="text-darkPink">Vidéos,</span> reportages, émissions...
-  </h3>
+  {
+    mappedRecommendations.videos.length > 0 && (
+      <>
+        <h3 class="text-llg font-bold leading-10">
+          <span class="text-darkPink">Vidéos,</span> reportages, émissions...
+        </h3>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {mappedRecommendations.videos.map((recommendation) => (
+            <Video recommendation={recommendation} />
+          ))}
+        </div>
+      </>
+    )
+  }
+
   <h3 class="text-llg font-bold leading-10">
     <span class="text-darkPink">Podcasts,</span> contenus audio...
   </h3>
