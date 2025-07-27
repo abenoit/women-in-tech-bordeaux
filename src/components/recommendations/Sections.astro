@@ -1,11 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 
-import Layout from "../layouts/Layout.astro";
-import Reading from "./Reading.astro";
-import Video from "./Video.astro";
 import Article from "./Article.astro";
+import Audio from "./Audio.astro";
+import Layout from "../layouts/Layout.astro";
+import Follow from "./Follow.astro";
+import Reading from "./Reading.astro";
+import Organization from "./Organization.astro";
 import Section from "./Section.astro";
+import Video from "./Video.astro";
 
 const recommendations = await getCollection("recommendations");
 
@@ -71,7 +74,9 @@ const mappedRecommendations = recommendations.reduce(
   {
     mappedRecommendations.audios.length > 0 && (
       <Section titleEmphasis="Podcasts," title="contenus audio...">
-        TODO
+        {mappedRecommendations.audios.map((recommendation) => (
+          <Audio recommendation={recommendation} />
+        ))}
       </Section>
     )
   }
@@ -89,7 +94,9 @@ const mappedRecommendations = recommendations.reduce(
   {
     mappedRecommendations.follow.length > 0 && (
       <Section titleEmphasis="Comptes à suivre," title="pages, personnes...">
-        TODO
+        {mappedRecommendations.follow.map((recommendation) => (
+          <Follow recommendation={recommendation} />
+        ))}
       </Section>
     )
   }
@@ -97,7 +104,9 @@ const mappedRecommendations = recommendations.reduce(
   {
     mappedRecommendations.organizations.length > 0 && (
       <Section titleEmphasis="Organismes," title="...">
-        TODO
+        {mappedRecommendations.organizations.map((recommendation) => (
+          <Organization recommendation={recommendation} />
+        ))}
       </Section>
     )
   }
