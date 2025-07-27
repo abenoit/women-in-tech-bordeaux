@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "./layouts/Layout.astro";
+import Button from "./Button.astro";
+import witLogo from "../assets/wit.svg";
+---
+
+<Layout class="bg-mainPurple pt-4">
+  <section
+    id="hero"
+    class="mb-5 flex flex-row items-center justify-center gap-4 md:mb-6 md:justify-between"
+  >
+    <a href="/">
+      <Image src={witLogo} width="115" height="48" alt="Women in Tech" />
+    </a>
+    <ul class="navbar flex-row items-center gap-4 text-white underline md:flex">
+      <li class="">
+        <a href="previous-events">Éditions précédentes</a>
+      </li>
+      <li class=""><a href="recommendations">Recommandations</a></li>
+      <li>
+        <Button
+          link="https://www.linkedin.com/company/women-in-tech-bordeaux"
+          external
+          label="Nous suivre sur LinkedIn"
+        />
+      </li>
+    </ul>
+  </section>
+
+  <slot />
+</Layout>

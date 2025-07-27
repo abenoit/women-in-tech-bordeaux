@@ -1,10 +1,6 @@
 ---
-import { Image } from "astro:assets";
-
-import Layout from "./layouts/Layout.astro";
 import Title from "./Title.astro";
-import Button from "./Button.astro";
-import witLogo from "../assets/wit.svg";
+import HeaderLinks from "./HeaderLinks.astro";
 
 interface Props {
   title: string;
@@ -14,29 +10,7 @@ interface Props {
 const { title, subtitle } = Astro.props;
 ---
 
-<Layout class="bg-mainPurple pt-4">
-  <section
-    id="hero"
-    class="mb-5 flex flex-row items-center justify-center gap-4 md:mb-6 md:justify-between"
-  >
-    <a href="/">
-      <Image src={witLogo} width="115" height="48" alt="Women in Tech" />
-    </a>
-    <ul class="navbar flex-row items-center gap-4 text-white underline md:flex">
-      <li class="">
-        <a href="#previous-events">Éditions précédentes</a>
-      </li>
-      <li class=""><a href="#recommendations">Recommandations</a></li>
-      <li>
-        <Button
-          link="https://www.linkedin.com/company/women-in-tech-bordeaux"
-          external
-          label="Nous suivre sur LinkedIn"
-        />
-      </li>
-    </ul>
-  </section>
-
+<HeaderLinks>
   <section class="flex flex-col items-center gap-7 lg:flex-row">
     <div class="flex flex-grow basis-0 flex-col items-start">
       <Title label={title} separatorColor="purple2" color="white" />
@@ -45,4 +19,4 @@ const { title, subtitle } = Astro.props;
       </p>
     </div>
   </section>
-</Layout>
+</HeaderLinks>

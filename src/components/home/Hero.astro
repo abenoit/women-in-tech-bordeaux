@@ -6,25 +6,10 @@ import eventPicture from "../../assets/photo_cover_1.png";
 import Button from "../Button.astro";
 import Layout from "../layouts/Layout.astro";
 import Title from "../Title.astro";
+import HeaderLinks from "../HeaderLinks.astro";
 ---
 
-<Layout class="bg-mainPurple pt-4">
-  <section
-    id="hero"
-    class="mb-5 flex flex-row items-center justify-center md:mb-6 md:justify-between"
-  >
-    <a href="/">
-      <Image src={witLogo} width="115" height="48" alt="Women in Tech" />
-    </a>
-    <ul class="navbar hidden flex-row gap-4 underline md:flex">
-      <li>
-        <a href="#about">A propos</a>
-      </li>
-      <li><a href="#join-us">Prendre part au WIT</a></li>
-      <li><a href="#organizers">Organisatrices</a></li>
-    </ul>
-  </section>
-
+<HeaderLinks>
   <section class="flex flex-col items-center gap-7 lg:flex-row">
     <Image
       src={eventPicture}
@@ -55,7 +40,7 @@ import Title from "../Title.astro";
       </div>
     </div>
   </section>
-</Layout>
+</HeaderLinks>
 
 <!--Set active class on nav when the page is active -->
 <script>
