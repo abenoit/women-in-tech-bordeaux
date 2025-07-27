@@ -52,13 +52,13 @@ try {
 ---
 
 <>
-  <div class="flex flex-col items-center gap-4">
+  <div class="flex flex-col items-center gap-2">
     {
       coverImage && (
         <Image
           src={coverImage}
           alt={`couverture du livre ${recommendation.title}`}
-          class="h-[280px] object-contain"
+          class="h-[170px] object-contain"
         />
       )
     }
@@ -85,9 +85,7 @@ try {
             href={recommendation.consultLink.link}
             class="text-linkPurple underline"
           >
-            {recommendation.consultLink.verb === "Consulter"
-              ? "Consulter le contenu"
-              : `${recommendation.consultLink.verb} le livre sur ${recommendation.consultLink.platform}`}
+            {`${recommendation.consultLink.verb} sur ${recommendation.consultLink.platform}`}
           </a>
         )
       }

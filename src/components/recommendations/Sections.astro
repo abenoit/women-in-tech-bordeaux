@@ -4,69 +4,106 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Reading from "./Reading.astro";
 import Video from "./Video.astro";
+import Section from "./Section.astro";
 
 const recommendations = await getCollection("recommendations");
 
+const SUPPORTED_SLUGS = [
+  "readings",
+  "videos",
+  "audios",
+  "articles",
+  "organizations",
+  "follow",
+];
 const mappedRecommendations = recommendations.reduce(
   (acc, reco) => {
-    if (reco.slug === "readings") {
-      acc.readings.push(...(reco.data.items || []));
-    } else if (reco.slug === "videos") {
-      acc.videos.push(...(reco.data.items || []));
-    } else if (reco.slug === "audios") {
-      acc.audios.push(...(reco.data.items || []));
+    if (!reco.slug || !SUPPORTED_SLUGS.includes(reco.slug)) {
+      console.warn(`Unsupported recommendation slug: ${reco.slug}`);
+      return acc;
     }
+
+    // @ts-expect-error reco.slug isn't typed correctly
+    acc[reco.slug].push(...(reco.data.items || []));
+
     return acc;
   },
-  { readings: [], videos: [], audios: [] } as {
+  {
+    readings: [],
+    videos: [],
+    audios: [],
+    articles: [],
+    organizations: [],
+    follow: [],
+  } as {
     readings: any[];
     videos: any[];
     audios: any[];
+    articles: any[];
+    organizations: any[];
+    follow: any[];
   },
 );
 ---
 
-<Layout noPadding class="flex flex-col gap-11 bg-white pb-6 pt-9">
+<Layout noPadding class="flex flex-col gap-11 bg-white py-9">
   {
     mappedRecommendations.readings.length > 0 && (
-      <>
-        <h3 class="text-llg font-bold leading-10">
-          <span class="text-darkPink">Livres,</span> magazines...
-        </h3>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {mappedRecommendations.readings.map((recommendation) => (
-            <Reading recommendation={recommendation} />
-          ))}
-        </div>
-      </>
+      <Section titleEmphasis="Lectures," title="livres, magazines...">
+        {mappedRecommendations.readings.map((recommendation) => (
+          <Reading recommendation={recommendation} />
+        ))}
+      </Section>
     )
   }
 
   {
     mappedRecommendations.videos.length > 0 && (
-      <>
-        <h3 class="text-llg font-bold leading-10">
-          <span class="text-darkPink">Vidéos,</span> reportages, émissions...
-        </h3>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {mappedRecommendations.videos.map((recommendation) => (
-            <Video recommendation={recommendation} />
-          ))}
-        </div>
-      </>
+      <Section titleEmphasis="Vidéos," title="reportages, émissions...">
+        {mappedRecommendations.videos.map((recommendation) => (
+          <Video recommendation={recommendation} />
+        ))}
+      </Section>
     )
   }
 
-  <h3 class="text-llg font-bold leading-10">
-    <span class="text-darkPink">Podcasts,</span> contenus audio...
-  </h3>
-  <h3 class="text-llg font-bold leading-10">
-    <span class="text-darkPink">Articles,</span> ...
-  </h3>
-  <h3 class="text-llg font-bold leading-10">
-    <span class="text-darkPink">Comptes à suivre,</span> pages, personnes...
-  </h3>
-  <h3 class="text-llg font-bold leading-10">
-    <span class="text-darkPink">Organismes,</span> ...
-  </h3>
+  {
+    mappedRecommendations.audios.length > 0 && (
+      <Section titleEmphasis="Podcasts," title="contenus audio...">
+        TODO
+      </Section>
+    )
+  }
+
+  {
+    mappedRecommendations.audios.length > 0 && (
+      <Section titleEmphasis="Podcasts," title="contenus audio...">
+        TODO
+      </Section>
+    )
+  }
+
+  {
+    mappedRecommendations.articles.length > 0 && (
+      <Section titleEmphasis="Articles," title="...">
+        TODO
+      </Section>
+    )
+  }
+
+  {
+    mappedRecommendations.follow.length > 0 && (
+      <Section titleEmphasis="Comptes à suivre," title="pages, personnes...">
+        TODO
+      </Section>
+    )
+  }
+
+  {
+    mappedRecommendations.organizations.length > 0 && (
+      <Section titleEmphasis="Organismes," title="...">
+        TODO
+      </Section>
+    )
+  }
 </Layout>

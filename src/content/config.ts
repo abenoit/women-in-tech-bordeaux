@@ -23,13 +23,7 @@ const recommendations = defineCollection({
             consultLink: z
               .object({
                 link: z.string(),
-                verb: z.enum([
-                  "Acheter",
-                  "Lire",
-                  "Consulter",
-                  "Écouter",
-                  "Suivre",
-                ]),
+                verb: z.string(),
                 platform: z.string(),
               })
               .optional(),
