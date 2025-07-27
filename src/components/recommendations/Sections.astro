@@ -20,6 +20,18 @@ const SUPPORTED_SLUGS = [
   "organizations",
   "follow",
 ];
+
+export type Recommendation = {
+  title: string;
+  author: string;
+  thumbnail: string;
+  recommendedBy: {
+    name: string;
+    picture: string;
+  };
+  consultLink?: { link: string; platform: string; verb: string } | undefined;
+};
+
 const mappedRecommendations = recommendations.reduce(
   (acc, reco) => {
     if (!reco.slug || !SUPPORTED_SLUGS.includes(reco.slug)) {

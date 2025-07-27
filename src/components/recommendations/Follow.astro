@@ -1,16 +1,6 @@
 ---
 import { Image } from "astro:assets";
-
-type Recommendation = {
-  title: string;
-  author: string;
-  thumbnail: string;
-  recommendedBy: {
-    name: string;
-    picture: string;
-  };
-  consultLink?: { link: string; platform: string } | undefined;
-};
+import type { Recommendation } from "./Sections.astro";
 
 interface Props {
   recommendation: Recommendation | undefined;
