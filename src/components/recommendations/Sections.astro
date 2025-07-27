@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Reading from "./Reading.astro";
 import Video from "./Video.astro";
+import Article from "./Article.astro";
 import Section from "./Section.astro";
 
 const recommendations = await getCollection("recommendations");
@@ -76,17 +77,11 @@ const mappedRecommendations = recommendations.reduce(
   }
 
   {
-    mappedRecommendations.audios.length > 0 && (
-      <Section titleEmphasis="Podcasts," title="contenus audio...">
-        TODO
-      </Section>
-    )
-  }
-
-  {
     mappedRecommendations.articles.length > 0 && (
       <Section titleEmphasis="Articles," title="...">
-        TODO
+        {mappedRecommendations.articles.map((recommendation) => (
+          <Article recommendation={recommendation} />
+        ))}
       </Section>
     )
   }
