@@ -1,0 +1,113 @@
+---
+import { getCollection } from "astro:content";
+
+import Article from "./Article.astro";
+import Audio from "./Audio.astro";
+import Layout from "../layouts/Layout.astro";
+import Follow from "./Follow.astro";
+import Reading from "./Reading.astro";
+import Organization from "./Organization.astro";
+import Section from "./Section.astro";
+import Video from "./Video.astro";
+
+const recommendations = await getCollection("recommendations");
+
+const SUPPORTED_SLUGS = [
+  "readings",
+  "videos",
+  "audios",
+  "articles",
+  "organizations",
+  "follow",
+];
+const mappedRecommendations = recommendations.reduce(
+  (acc, reco) => {
+    if (!reco.slug || !SUPPORTED_SLUGS.includes(reco.slug)) {
+      console.warn(`Unsupported recommendation slug: ${reco.slug}`);
+      return acc;
+    }
+
+    // @ts-expect-error reco.slug isn't typed correctly
+    acc[reco.slug].push(...(reco.data.items || []));
+
+    return acc;
+  },
+  {
+    readings: [],
+    videos: [],
+    audios: [],
+    articles: [],
+    organizations: [],
+    follow: [],
+  } as {
+    readings: any[];
+    videos: any[];
+    audios: any[];
+    articles: any[];
+    organizations: any[];
+    follow: any[];
+  },
+);
+---
+
+<Layout noPadding class="flex flex-col gap-11 bg-white py-9">
+  {
+    mappedRecommendations.readings.length > 0 && (
+      <Section titleEmphasis="Lectures," title="livres, magazines...">
+        {mappedRecommendations.readings.map((recommendation) => (
+          <Reading recommendation={recommendation} />
+        ))}
+      </Section>
+    )
+  }
+
+  {
+    mappedRecommendations.videos.length > 0 && (
+      <Section titleEmphasis="Vidéos," title="reportages, émissions...">
+        {mappedRecommendations.videos.map((recommendation) => (
+          <Video recommendation={recommendation} />
+        ))}
+      </Section>
+    )
+  }
+
+  {
+    mappedRecommendations.audios.length > 0 && (
+      <Section titleEmphasis="Podcasts," title="contenus audio...">
+        {mappedRecommendations.audios.map((recommendation) => (
+          <Audio recommendation={recommendation} />
+        ))}
+      </Section>
+    )
+  }
+
+  {
+    mappedRecommendations.articles.length > 0 && (
+      <Section titleEmphasis="Articles," title="...">
+        {mappedRecommendations.articles.map((recommendation) => (
+          <Article recommendation={recommendation} />
+        ))}
+      </Section>
+    )
+  }
+
+  {
+    mappedRecommendations.follow.length > 0 && (
+      <Section titleEmphasis="Comptes à suivre," title="pages, personnes...">
+        {mappedRecommendations.follow.map((recommendation) => (
+          <Follow recommendation={recommendation} />
+        ))}
+      </Section>
+    )
+  }
+
+  {
+    mappedRecommendations.organizations.length > 0 && (
+      <Section titleEmphasis="Organismes," title="...">
+        {mappedRecommendations.organizations.map((recommendation) => (
+          <Organization recommendation={recommendation} />
+        ))}
+      </Section>
+    )
+  }
+</Layout>

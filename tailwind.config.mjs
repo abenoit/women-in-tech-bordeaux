@@ -47,6 +47,7 @@ export default {
       fontSize: {
         xs: "0.75em",
         sm: "1.125em",
+        md: "1.15em",
         md: "1.25em",
         lg: "1.5em",
         llg: "1.75em",
@@ -60,6 +61,7 @@ export default {
         3: "16px",
         4: "24px",
         5: "32px",
+        5.2: "36px",
         5.5: "40px",
         6: "48px",
         7: "56px",

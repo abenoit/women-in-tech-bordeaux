@@ -1,0 +1,18 @@
+---
+interface Props {
+  titleEmphasis: string;
+  title: string;
+}
+
+const { titleEmphasis, title } = Astro.props;
+---
+
+<div>
+  <h3 class="pb-4 text-llg font-bold leading-10">
+    <span class="text-mediumPurple">{titleEmphasis}</span>
+    {title}
+  </h3>
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+    <slot />
+  </div>
+</div>
