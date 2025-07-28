@@ -1,0 +1,136 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "./layouts/Layout.astro";
+import Button from "./Button.astro";
+import witLogo from "../assets/logo-wit.svg";
+---
+
+<Layout class="bg-mainPurple pt-4">
+  <section
+    id="hero"
+    class="mb-5 flex flex-row items-center justify-between gap-4 md:mb-6"
+  >
+    <a href="/">
+      <Image src={witLogo} width="115" height="48" alt="Women in Tech" />
+    </a>
+
+    <!-- Hamburger button for mobile -->
+    <button
+      id="hamburger-btn"
+      class="z-20 flex flex-col gap-1.5 md:hidden"
+      aria-label="Menu"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <!-- Navigation menu - hidden by default on mobile -->
+
+    <ul
+      id="navbar-menu"
+      class="navbar md:bg-transparent fixed right-0 top-0 z-10 hidden h-screen w-full flex-col items-start gap-5 bg-mainPurple px-[10%] py-4 text-white md:static md:flex md:h-auto md:w-auto md:flex-row md:items-center md:gap-4 md:py-0"
+    >
+      <li class="md:hidden">
+        <a class="border-b-[1px]" href="/">
+          <Image src={witLogo} width="115" height="48" alt="Women in Tech" />
+        </a>
+      </li>
+      <li class="md:hidden">
+        <a class="border-b-[1px]" href="/">Accueil</a>
+      </li>
+      <li>
+        <a class="border-b-[1px]" href="/events">Éditions précédentes</a>
+      </li>
+      <li>
+        <a class="border-b-[1px]" href="/recommendations">Recommandations</a>
+      </li>
+      <li>
+        <Button
+          link="https://www.linkedin.com/company/women-in-tech-bordeaux"
+          external
+          label="Nous suivre sur LinkedIn"
+        />
+      </li>
+    </ul>
+  </section>
+
+  <slot />
+</Layout>
+
+<style>
+  .hamburger-line {
+    @apply h-0.5 w-6 rounded-full bg-white transition-all duration-300;
+  }
+
+  /* Active state for hamburger button */
+  #hamburger-btn.active .hamburger-line:nth-child(1) {
+    @apply translate-y-2 rotate-45;
+  }
+
+  #hamburger-btn.active .hamburger-line:nth-child(2) {
+    @apply opacity-0;
+  }
+
+  #hamburger-btn.active .hamburger-line:nth-child(3) {
+    @apply -translate-y-2 -rotate-45;
+  }
+
+  a.active {
+    @apply border-b-[1px] font-bold text-mediumPurple;
+  }
+</style>
+
+<script is:inline>
+  // Wait for the DOM to be fully loaded
+  document.addEventListener("DOMContentLoaded", () => {
+    // Toggle navigation menu on hamburger button click
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const navbarMenu = document.getElementById("navbar-menu");
+
+    if (hamburgerBtn && navbarMenu) {
+      hamburgerBtn.addEventListener("click", () => {
+        hamburgerBtn.classList.toggle("active");
+        navbarMenu.classList.toggle("hidden");
+        navbarMenu.classList.toggle("flex");
+        // Prevent scrolling when menu is open
+        document.body.classList.toggle("overflow-hidden");
+      });
+    }
+
+    // Close menu when clicking on a link
+    const navLinks = document.querySelectorAll("#navbar-menu a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth < 768) {
+          // Only on mobile
+          hamburgerBtn?.classList.remove("active");
+          navbarMenu?.classList.add("hidden");
+          navbarMenu?.classList.remove("flex");
+          document.body.classList.remove("overflow-hidden");
+        }
+      });
+    });
+
+    // Set active class on nav when the page is active
+    const setActiveLink = () => {
+      const nav = document.querySelector(".navbar");
+      const navLinks = nav?.querySelectorAll("a") || [];
+      const currentURL = window.location.href;
+      navLinks.forEach((link) => {
+        if (link.href === currentURL) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    };
+
+    // Set active links on load
+    setActiveLink();
+
+    // Update active links on hash change
+    window.addEventListener("hashchange", setActiveLink);
+  });
+</script>
