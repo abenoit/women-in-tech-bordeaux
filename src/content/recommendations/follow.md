@@ -3,7 +3,7 @@ items:
   - title: (R)évolution Inclusive
     author: ""
     consultLink:
-      verb: ""
+      verb: Suivre
       link: "https://www.linkedin.com/company/revolution-inclusive/"
       platform: "LinkedIn"
     thumbnail: "revolution-inclusive.jpg"
@@ -14,7 +14,7 @@ items:
   - title: Women First
     author: ""
     consultLink:
-      verb: Lire
+      verb: Suivre
       link: "https://www.linkedin.com/company/women-first/"
       platform: "LinkedIn"
     thumbnail: "women-first.jpg"
@@ -25,7 +25,7 @@ items:
   - title: Femmes@Numérique
     author: ""
     consultLink:
-      verb: Lire
+      verb: Suivre
       link: "https://www.linkedin.com/company/femmes-numerique/"
       platform: "LinkedIn"
     thumbnail: "femmes-numeriques.jpg"
