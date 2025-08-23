@@ -78,7 +78,7 @@ items:
       picture: "noemie.png"
 
   - title: "Toutes musclées"
-    author: Marcy Ericka Charollois
+    author: Arte TV
     consultLink:
       verb: Lire la série
       link: "https://www.arte.tv/fr/videos/RC-022998/toutes-musclees/"
