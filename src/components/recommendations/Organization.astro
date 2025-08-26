@@ -74,7 +74,7 @@ try {
             href={recommendation.consultLink.link}
             class="text-linkPurple underline"
           >
-            {`${recommendation.consultLink.verb} sur ${recommendation.consultLink.platform}`}
+            {`${recommendation.consultLink.verb}${recommendation.consultLink.platform && ` sur ${recommendation.consultLink.platform}`}`}
           </a>
         )
       }
