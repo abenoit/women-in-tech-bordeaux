@@ -7,6 +7,8 @@ const events = await getCollection("events");
 
 const eventsByYear = events.reduce(
   (acc, event) => {
+    if (event.data.date > new Date()) return acc; // Skip future events
+
     const year = new Date(event.data.date).getFullYear();
     if (!acc[year]) {
       acc[year] = [];
@@ -26,7 +28,7 @@ const eventsByYear = events.reduce(
         const yearEvents = eventsByYear[year];
         return (
           <div>
-            <h2 class="text-llg mb-5.5 font-bold leading-10 text-darkPink">
+            <h2 class="mb-5.5 text-llg font-bold leading-10 text-darkPink">
               {year}
             </h2>
             <div>

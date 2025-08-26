@@ -1,11 +1,12 @@
 ---
-title: "Sopra Steria s'engage pour les femmes dans la tech : découvrez l'histoire derrière la création de sa communauté "Tech'Women UP" !"
+title: "Sopra Steria s'engage pour les femmes dans la tech : découvrez l'histoire derrière la création de sa communauté  « Tech'Women UP » !"
 link: https://www.linkedin.com/events/7359251198748622851/
 platform: "LinkedIn"
 date: 2025-09-08
 place: En ligne
+sponsorLogo: ""
 talks:
-  - title: "Sopra Steria s'engage pour les femmes dans la tech : découvrez l'histoire derrière la création de sa communauté "Tech'Women UP" !"
+  - title: "Sopra Steria s'engage pour les femmes dans la tech : découvrez l'histoire derrière la création de sa communauté  « Tech'Women UP » !"
     speakers:
       - name: "Léonore des PLAS MATTEI"
         picture: "leonore_des_plas_mattei.jpeg"
