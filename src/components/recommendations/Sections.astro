@@ -1,14 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 
-import Article from "./Article.astro";
-import Audio from "./Audio.astro";
 import Layout from "../layouts/Layout.astro";
-import Follow from "./Follow.astro";
-import Reading from "./Reading.astro";
-import Organization from "./Organization.astro";
 import Section from "./Section.astro";
-import Video from "./Video.astro";
 import Recommandation from "./Recommandation.astro";
 
 const recommendations = await getCollection("recommendations");
