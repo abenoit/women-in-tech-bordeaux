@@ -9,10 +9,11 @@ import Reading from "./Reading.astro";
 import Organization from "./Organization.astro";
 import Section from "./Section.astro";
 import Video from "./Video.astro";
+import Recommandation from "./Recommandation.astro";
 
 const recommendations = await getCollection("recommendations");
 
-const SUPPORTED_SLUGS = [
+export const SUPPORTED_SLUGS = [
   "readings",
   "videos",
   "audios",
@@ -67,7 +68,7 @@ const mappedRecommendations = recommendations.reduce(
     mappedRecommendations.readings.length > 0 && (
       <Section titleEmphasis="Lectures," title="livres, magazines...">
         {mappedRecommendations.readings.map((recommendation) => (
-          <Reading recommendation={recommendation} />
+          <Recommandation recommendation={recommendation} />
         ))}
       </Section>
     )
@@ -77,7 +78,10 @@ const mappedRecommendations = recommendations.reduce(
     mappedRecommendations.videos.length > 0 && (
       <Section titleEmphasis="Vidéos," title="reportages, émissions...">
         {mappedRecommendations.videos.map((recommendation) => (
-          <Video recommendation={recommendation} />
+          <Recommandation
+            recommendation={recommendation}
+            with_small_thumbnail
+          />
         ))}
       </Section>
     )
@@ -87,7 +91,7 @@ const mappedRecommendations = recommendations.reduce(
     mappedRecommendations.audios.length > 0 && (
       <Section titleEmphasis="Podcasts," title="contenus audio...">
         {mappedRecommendations.audios.map((recommendation) => (
-          <Audio recommendation={recommendation} />
+          <Recommandation recommendation={recommendation} />
         ))}
       </Section>
     )
@@ -97,7 +101,11 @@ const mappedRecommendations = recommendations.reduce(
     mappedRecommendations.articles.length > 0 && (
       <Section titleEmphasis="Articles," title="...">
         {mappedRecommendations.articles.map((recommendation) => (
-          <Article recommendation={recommendation} />
+          <Recommandation
+            recommendation={recommendation}
+            with_small_thumbnail
+            linkLabel="Lire l'article"
+          />
         ))}
       </Section>
     )
@@ -107,7 +115,7 @@ const mappedRecommendations = recommendations.reduce(
     mappedRecommendations.follow.length > 0 && (
       <Section titleEmphasis="Comptes à suivre," title="pages, personnes...">
         {mappedRecommendations.follow.map((recommendation) => (
-          <Follow recommendation={recommendation} />
+          <Recommandation recommendation={recommendation} />
         ))}
       </Section>
     )
@@ -117,7 +125,7 @@ const mappedRecommendations = recommendations.reduce(
     mappedRecommendations.organizations.length > 0 && (
       <Section titleEmphasis="Organismes," title="...">
         {mappedRecommendations.organizations.map((recommendation) => (
-          <Organization recommendation={recommendation} />
+          <Recommandation recommendation={recommendation} />
         ))}
       </Section>
     )

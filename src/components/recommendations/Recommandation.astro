@@ -4,9 +4,11 @@ import type { Recommendation } from "./Sections.astro";
 
 interface Props {
   recommendation: Recommendation | undefined;
+  with_small_thumbnail?: boolean;
+  linkLabel?: string;
 }
 
-const { recommendation } = Astro.props;
+const { recommendation, with_small_thumbnail, linkLabel } = Astro.props;
 
 if (!recommendation) {
   return null;
@@ -47,7 +49,7 @@ try {
         <Image
           src={coverImage}
           alt={`couverture du livre ${recommendation.title}`}
-          class="h-[170px] object-contain"
+          class={`h-[${with_small_thumbnail ? "170" : "280"}px] object-contain`}
         />
       )
     }
@@ -74,7 +76,8 @@ try {
             href={recommendation.consultLink.link}
             class="text-linkPurple underline"
           >
-            {recommendation.consultLink.verb} l'article
+            {linkLabel ??
+              `${recommendation.consultLink.verb} ${recommendation.consultLink.platform ? `sur ${recommendation.consultLink.platform}` : ""}`}
           </a>
         )
       }
