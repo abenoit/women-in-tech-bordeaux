@@ -1,6 +1,7 @@
 ---
 title: Part of your world 🧜🏾 ou les abysses de la tech.
 date: 2024-04-10
+place: Deezer Bordeaux
 sponsorLogo: "deezer-square.png"
 placeLink: https://deezer.com/
 pictures:

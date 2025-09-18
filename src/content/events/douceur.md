@@ -1,6 +1,7 @@
 ---
 title: La douceur est-elle un avantage ? / Offboarding
 date: 2024-06-19
+place: Betomorrow
 placeLink: https://betomorrow.com/
 sponsorLogo: "betomorrow-square.png"
 pictures:

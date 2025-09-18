@@ -3,7 +3,7 @@ title: "Fresque du Facteur Humain : Ouvrons la boîte noire de nos cerveaux"
 link: https://lu.ma/hemgl0ag
 platform: "LinkedIn"
 date: 2025-06-25
-place: Aubay
+place: Aubay Bordeaux
 sponsorLogo: "aubay-square.png"
 placeLink: https://aubay.com/
 pictures:

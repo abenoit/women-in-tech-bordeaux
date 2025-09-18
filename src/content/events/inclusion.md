@@ -3,7 +3,7 @@ title: Inclusion dans la tech
 date: 2022-09-22
 link: ""
 platform: "Meetup"
-place: SFEIR
+place: SFEIR Bordeaux
 placeLink: https://sfeir.com/
 sponsorLogo: "sfeir-square.png"
 pictures:
