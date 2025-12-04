@@ -5,6 +5,17 @@ platform: "LinkedIn"
 date: 2025-09-08
 place: En ligne
 sponsorLogo: ""
+pictures:
+  folder: "communaute-femme-sopra"
+  images:
+    - src: "communaute-femme-sopra1.png"
+      alt: ""
+    - src: "communaute-femme-sopra2.png"
+      alt: ""
+    - src: "communaute-femme-sopra3.png"
+      alt: ""
+    - src: "communaute-femme-sopra4.png"
+      alt: ""
 talks:
   - title: "Sopra Steria s'engage pour les femmes dans la tech : découvrez l'histoire derrière la création de sa communauté  « Tech'Women UP » !"
     speakers:
