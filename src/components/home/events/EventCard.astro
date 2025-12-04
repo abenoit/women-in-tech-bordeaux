@@ -15,21 +15,32 @@ if (!entry) {
   throw new Error(`Event with slug ${id} not found`);
 }
 const { title, date, platform, link, place } = entry.data;
+
+// Normalize dates to start of day for comparison (ignore time component)
+const normalizeDate = (d: Date) => {
+  const normalized = new Date(d);
+  normalized.setHours(0, 0, 0, 0);
+  return normalized;
+};
+
+const eventDate = normalizeDate(date);
+const today = normalizeDate(new Date());
+const isFuture = eventDate >= today;
 ---
 
 <div
   class:list={[
     "flex-col rounded-sm bg-white shadow-md",
     {
-      "lg:col-span-5": date >= new Date(),
+      "lg:col-span-5": isFuture,
     },
     {
-      "lg:col-span-4": date < new Date(),
+      "lg:col-span-4": !isFuture,
     },
   ]}
 >
   {
-    date >= new Date() ? (
+    isFuture ? (
       <FutureEvent label={title} {link} {date} {place} />
     ) : (
       <PastEvent label={title} {link} {platform} />

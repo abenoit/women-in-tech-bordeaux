@@ -54,7 +54,7 @@ const events = defineCollection({
         .optional(),
       place: z.string().optional(),
       placeLink: z.string().optional(),
-      platform: z.enum(["Meetup", "LinkedIn"]).optional(),
+      platform: z.enum(["Meetup", "LinkedIn", "Luma"]).optional(),
       sponsorLogo: z.string(),
       title: z.string(),
       talks: z
